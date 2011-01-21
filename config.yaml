@@ -1,0 +1,17 @@
+exchange:
+ CME:
+  symbols: ES,ZC,OZC,ZW,OZW,ZS,OZS,HE,LE,SPX,SP,GE,CL
+  ip: 216.14.120.252
+  inteface: eth0
+  type: DEMO
+
+ CBOE:
+
+ ICE:
+
+ AMEX:
+
+ ACTIV:
+traders:
+  users: BATMAN,SUPERMAN,FLASH
+  pass: wayne,kent,west
