@@ -1,17 +1,44 @@
+customer: CUSTOMER_NAME
 exchange:
  CME:
   symbols: ES,ZC,OZC,ZW,OZW,ZS,OZS,HE,LE,SPX,SP,GE,CL
   ip: 216.14.120.252
   inteface: eth0
-  type: DEMO
+  type:
+  account:
 
  CBOE:
+  symbols:
+  ip:
+  interface:
+  account:
 
  ICE:
+  symbols:
+  ip:
+  interface:
+  account:
 
  AMEX:
+  symbols:
+  ip:
+  interface:
+  account:
 
  ACTIV:
-traders:
-  users: BATMAN,SUPERMAN,FLASH
-  pass: wayne,kent,west
+  symbols:
+  ip:
+  interface:
+  account:
+
+ CFE:
+  symbols:
+  ip: 
+  interface:
+  account:
+  
+
+users: 
+  BATMAN: wayne 
+  SUPERMAN: kent
+  FLASH: west

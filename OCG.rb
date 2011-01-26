@@ -1,13 +1,14 @@
 $: << File.dirname(__FILE__)
 #GLOBAL INTERFACE TO GENERATE CONFIGS
+require 'generators/generator.rb'
 require 'generators/cmegenerator.rb'
 require 'yaml'
 
 #need to work out: multiple demux ports, cme ip connection
 @config=YAML.load_file("config.yaml")
-p @config
 
-syms="ES,ZC,OZC,ZW,OZW,ZS,OZS,HE,LE,SPX,SP,GE,CL"
-ip="216.14.120.252"
-cme=CME::Generator.new syms,ip
-cme.generateTemplates
+syms="GC,OG,SI,SO"
+ip="172.21.150.95"
+OCG::Generator::setup(@config)
+#cme=CME::Generator.new syms,ip
+#cme.generateTemplates
