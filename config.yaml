@@ -1,9 +1,10 @@
 customer: CUSTOMER_NAME
+default: CME
 exchange:
  CME:
-  symbols: ES,ZC,OZC,ZW,OZW,ZS,OZS,HE,LE,SPX,SP,GE,CL
-  ip: 216.14.120.252
-  inteface: eth0
+  symbols: ZC,OZC,ZW,OZW,ZM,OZM
+  ip: 172.23.25.149 
+  inteface: eth1
   type:
   account:
 

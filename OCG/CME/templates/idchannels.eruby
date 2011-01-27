@@ -1,0 +1,9 @@
+
+<%=name %>-id = <%=id%>
+<%=name %>-host = <%=host%>
+<%=name %>-port = <%=port%>
+<%=name %>-networkinterface = eth0
+<%=name %>-demuxinterface = <%=ip%>
+<%=name %>-demuxport = 10000
+<%=name %>-initfile = etc/<%=name %>-id.log
+<%=name %>-symbols = <%=symbols%>
