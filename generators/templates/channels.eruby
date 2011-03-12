@@ -1,1 +1,0 @@
-<%=ip%> 10000 <%=host%> 1 <%=port%> <%=host%> 1 <%=port%> etc/<%=name%>-id.log
