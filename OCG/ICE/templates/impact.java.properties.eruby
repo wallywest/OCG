@@ -1,0 +1,107 @@
+# Price feed server address 
+mdf.server.address=63.247.112.173
+# Price feed server port
+mdf.server.port=80
+
+# Username 
+mdf.client.username=<%= psusername %>
+# Performance System
+#mdf.client.username=option_ps
+
+# Password for API Test and Performance System
+mdf.client.password=0pti0nscity
+
+# Market types we are interested
+# 5 - Brent, 9 - WTI, 99 - Invalid Market Type (just test the error response)
+#mdf.client.interest.market.types=5,9,99
+#mdf.client.interest.market.types=20,9
+#mdf.client.interest.market.types=5,24,25,41,17,18,19
+#mdf.client.interest.market.types=5,17,18,19
+#mdf.client.interest.market.types=5
+# For Certification
+# 5,IPE Brent Futures BRN | 3,IPE Natural Gas Futures GWM | 7,IPE UK Electricity Futures Peak PPM | 8,IPE UK Electricity Futures Base BPM
+# 28,Russell Indices GG(Russell 1000 Growth Index),VV(Russell 1000 Value Index),RF(Russell 1000 Index Mini),VB(Russell 2000 Value Index),TF(Russell 2000 Index Mini),GH(Russell 2000 Growth Index) 
+# 29,Commodity Index Futures (No Permissions)| 26,US Dollar Index DX | 39,Foreign Exchange (No Permission)
+# 14,ICE Heating Oil Futures Crack UHO / WBS
+# 13,ICE Heating Oil Futures UHO
+# 9,ICE WTI Crude Futures WBS
+# 36,Canadian Oilseeds | 37,Canadian Grains
+# 24,Sugar No. 11 SB | 25,Sugar No. 14 SE | 41,Sugar No. 16 SF
+# 20,Cocoa CC
+mdf.client.interest.market.types=<%= ids %>
+
+# Flag to indicate if we want data buffering on the server side
+# Reduce small packets and save bandwidth
+mdf.data.buffering=false
+
+# Flag to indicate if we want to get market stats update
+mdf.get_market_stats=true
+#mdf.get_market_stats=false
+
+# Flag to indicate if we want to message bundle markers
+#mdf.get_bundle_marker=true
+mdf.get_bundle_marker=false
+
+# Flag to indicate if we want to get implied orders or not
+# THIS SHOULD ALWAYS BE SET TO TRUE!!!
+mdf.get_implied_orders=true
+
+# Flag to indicate if we want to options messages or not
+#mdf.get_options_messages=false
+mdf.get_options_messages=true
+
+# Flag to indicate if we want to get market event messages or not
+mdf.get_market_event_messages=true
+
+# The version of the spec the client is writing to
+mdf.client.version=1.1.14
+
+# Flag to indicate if we want to get unofficial settlement price or not
+mdf.get_unofficial_settlements=true
+
+# Flag to indicate whether the client should automatically reconnect if connection is dropped
+mdf.client.autoreconnect=false
+
+# Is Crossed Book Detection Enabled?
+crossed.book.detection.enabled=false
+
+# Crossed Book Alert Delayed Market Types (Applicable only when the detect.crossed.book is set to true)
+# Typically, we do this for OTC and Crack markets
+crossed.book.alert.delayed.market.types=0,1,2,6
+
+# Crossed Book Alert Threshold  (Applicable only when the detect.crossed.book is set to true)
+crossed.book.alert.threshold.ms=120000
+
+# Crossed Book Monitoring interval (default: 30 seconds) (Applicable only when the detect.crossed.book is set to true)
+crossed.book.delayed.monitoring.interval.ms=30000
+
+# Flag to download all instruments for all market types (Valid values: Y or N)
+mdf.client.download_all_instruments=N
+#mdf.client.download_all_instruments=Y
+
+# All markets with code/description
+mdf.client.all.markets=0,ICE OTC Financial Gas | 1,ICE OTC Financial Power | 2,ICT OTC Oil | 3,IPE Natural Gas Futures | 4,IPE Gas Oil Futures | 5,IPE Brent Futures | 6,IPE Gas Oil Futures Crack | 7,IPE UK Electricity Futures Peak | 8,IPE UK Electricity Futures Base | 9,ICE WTI Crude Futures | 10,gC Newcastle Coal Futures | 11,ICE Brent-WTI Spread | 12,IPE-ECX European Emissions | 13,ICE Heating Oil Futures | 14,ICE Heating Oil Futures Crack | 15,ICE NYH (RBOB) Gasoline Futures | 16,ICE NYH (RBOB) Gasoline/WTI Futures Crack |17,ICE Rotterdam Coal Futures | 18,ICE Richards Bay Coal Futures | 19,ICE Rotterdam/Richards Bay Coal Futures Spread | 20,Cocoa | 21,Coffee C |22,Cotton No 2 | 23,FCOJ A | 24,Sugar No 11 | 25,Sugar No 14 | 26,US Dollar Index | 27,ICE Heating Oil/Gas Oil Futures Spread | 28,Russell Indices | 29,Commodity Index Futures | 30, CCX Spot Emission Allowances | 31,ICE Middle East Sour Crude Futures | 32,ICE Brent/Middle East Crude Futures Spread | 33,ICE WTI/Middle East Crude Futures Spread | 34,CCFE Sulfur Dioxide Futures | 36,Canadian Oilseeds | 37,Canadian Grains | 38,ECX CER Futures | 39,Foreign Exchange | 40,Financial Index Data | 41,Sugar No 16 | 42,ECX EUA/CER Futures Spread | 43,CCFE Inter Spreads | 44,Henry Hub
+
+# List of environments client can choose in the login dialog window. 
+# The presence of this property will bring up the login dialog window when connecting
+# Format: Description,ServerIP,PortNumber
+
+# mdf.server.envs=ApiTest,12.129.93.133,8000|PerfTest,12.129.93.214,8000
+
+# Flag to indicate if best prices need to be logged
+mdf.client.logbestprice=false
+
+# Interested market(s) in best price logging
+mdf.client.bestpricelog.interested_markets=5,Brent|9,WTI
+
+# best price log file name
+mdf.client.bestpricelog.filename=_BestPrice.log
+
+# Max file size for best price log before rolling over
+mdf.client.bestpricelog.max_file_size=500MB
+
+# System Text Message Window display location: x_position|y_position
+#mdf.client.system.message.window.location=0|0
+
+
+

@@ -1,24 +1,29 @@
-$: << File.dirname(__FILE__)
+#$: << File.dirname(__FILE__)
 require 'nokogiri'
 require 'erubis'
-$dir=$:.last
-$templates="#{$:.last}/templates"
 #figure out bookdepth later
 
 module CME
 class CME::Generator
 	attr_reader :configs
-	def initialize chash
+	def initialize chash,filewriter
 		@chash=chash
-		f=File.open("#{$dir}/config.xml",'r')
-		@translator=YAML.load_file("#{$dir}/translator.yaml")
+		@dir="#{$:.last}/CME"
+
+		f=File.open("#{@dir}/config.xml",'r')
+		@translator=YAML.load_file("#{@dir}/translator.yaml")
+		p @translator
+		debugger
 		@cme=Nokogiri::XML(f)
 		@symbols=@chash["symbols"].split(",")
 		@cmeip=@chash["ip"]
 		@configfiles=%w{idchannels.properties mdchannels.properties}
+		@filewriter=filewriter
+
 		findChannelDetails
 		createFiles
 		generateTemplates
+		genCMEDisplay
 	end
 	def getConnectionInfo channel
 		id=@cme.xpath("#{channel}").first.attributes["id"].value
@@ -33,6 +38,9 @@ class CME::Generator
 		end
 
 	end
+	def addChanName(label)
+		@allnames << "#{@translator[label]} "
+	end
 	def findChannelDetails
 		@configs={}
 		@skipid=["Inter Exchange Spreads"]
@@ -43,9 +51,9 @@ class CME::Generator
 			@symbols.each do |sym|
 				code=channel.xpath("products/product[@code='#{sym}']")
 				unless code.empty?
+					addChanName(label) if @configs["#{channel.path}"].nil?
 					@configs["#{channel.path}"] ||= {}
 					@configs["#{channel.path}"]["name"]="#{@translator[label]}"
-					@allnames << "#{@translator[label]} "
 					@configs["#{channel.path}"]["symbols"] ||= []
 					@configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
 				end
@@ -58,39 +66,9 @@ class CME::Generator
 		@configfiles.each do |f|
 			File.open("deploy/"+f,'w')  {|file| file.write("active-channels = #{@allnames}" + "\n")}	
 		end
-	end
-	def genIdchan
-		idchan = File.read("#{$templates}/idchannels.eruby")
-                id=Erubis::Eruby.new(idchan)
-		@idchan << id.result(@vars)
-
-	end
-	def genMdchan
-                mdchan = File.read("#{$templates}/mdchannels.eruby")
-                md=Erubis::Eruby.new(mdchan)
-                @mdchan << md.result(@vars)
-	end
-	def genDemux
-		demux=File.read("#{$templates}/demux.eruby")
-		de=Erubis::Eruby.new(demux)
-		@demux=de.result(:ip => @cmeip)
-	end
-	def genChannelist
-		channlist=File.read("#{$templates}/channels.eruby")
-		chan=Erubis::Eruby.new(channlist)
-		@channel << chan.result(@vars)
-
-	end
-	def genCMEDisplay
-		@write=''
-		@display=File.open("#{$templates}/globalcmedisplay.txt",'r')
-		@finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
-		@display.each_line do |line|
-			@symbols.each do |sym| 
-				if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
-			end
-        	end
-		@finaldisplay.write(@write)
+		File.open('deploy/mdchannels.properties','a') do |f| 
+                       File.open("#{@dir}/templates/premdchannels.config",'r') {|x| x.each_line {|line| f.write(line)}}
+		end
 	end
 	def generateTemplates
 		@vars={}
@@ -102,6 +80,7 @@ class CME::Generator
 		@vars["book"]="2"
 		@vars["ibook"]="1"
 		# =====================
+		debugger
 		@configs.each_value do |value|
 			@vars["name"]=value["name"]
 			@id=value["id"]
@@ -115,22 +94,28 @@ class CME::Generator
                         @vars["portib"]=value["connAtts"]["#{@id}IB"][1]
                         @vars["hostsa"]=value["connAtts"]["#{@id}SA"][0]
                         @vars["hostsb"]=value["connAtts"]["#{@id}SA"][1]
-		genChannelist
-		genIdchan
-                genMdchan
+			%w{idchannels.properties mdchannels.properties channels.list}.each do |conf|
+				write "#{conf}", @vars
+			end
 		end
-		
-		genCMEDisplay
-		genDemux
-		## REFACTOR
-		File.open('deploy/demux.conf','w',) {|f| f.write(@demux) }
-		File.open('deploy/channels.list','w',) {|f| @channel.each {|x| f.write(x)} }
-                File.open('deploy/idchannels.properties','a') {|f| @idchan.each {|x| f.write(x)} }
-                File.open('deploy/mdchannels.properties','a') do |f| 
-			File.open("#{$templates}/premdchannels.config",'r') {|x| x.each_line {|line| f.write(line)}}
-			@mdchan.each {|x| f.write(x)}
-		end
+		write "demux.conf",{:ip => @cmeip}
 
 	end
+	def write file,values 
+		@vars["name"].gsub(/commodity/,"commodities") if @vars["name"].include?("commodity")
+		@filewriter.writeTemplate "CME",file,values
+	end
+	def genCMEDisplay
+                @write=''
+                @display=File.open("#{@dir}/templates/globalcmedisplay.txt",'r')
+                @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
+                @display.each_line do |line|
+                        @symbols.each do |sym|
+                                if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
+                        end
+                end
+                @finaldisplay.write(@write)
+        end
+
 end
 end

@@ -1,0 +1,9 @@
+
+<%=name %>-id = <%=id%>
+<%=name %>-host = <%=host%>
+<%=name %>-port = <%=port%>
+<%=name %>-networkinterface = eth1
+<%=name %>-demuxinterface = <%=ip%>
+<%=name %>-demuxport = 10000
+<%=name %>-initfile = etc/<%=name.gsub(/commodity/,"commodities") %>-id.log
+<%=name %>-symbols = <%=symbols%>

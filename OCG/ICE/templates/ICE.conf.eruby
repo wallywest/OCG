@@ -1,0 +1,116 @@
+##################################################
+#
+# ICE SETTINGS
+#
+##################################################
+
+##################################################
+# MARKET DATA SETTINGS
+#
+# Valid market data types are MULTICAST or TCP (Default is TCP)
+##################################################
+MarketDataType =
+
+##################################################
+# QUOTE GOVERNOR SETTINGS
+##################################################
+QuotesPerInterval = 100
+Interval = 1000
+QuotesPerMassQuote = 100
+QuoteSubmitDelay = 50
+
+##################################################
+#
+# QUICKFIX SETTINGS
+#
+##################################################
+# default settings for sessions
+[DEFAULT]
+ConnectionType=initiator
+ReconnectInterval=60
+FileStorePath=var
+FileLogPath=log
+TargetCompID=ICE
+
+[SESSION]
+BeginString=FIX.4.2
+SenderCompID=<%=sendercompid%>
+Password=0pti0nscity
+SenderSubID=<%sendersubid%>
+Username=<%=iceidos%>
+TraderId=<%=iceidtraderid%>
+#SenderLocationID=OptionsCity
+#Account=1234
+#MMAccount=2345
+#CTICode=1
+#CustomerOrFirm=1
+StartTime=23:30:00
+EndTime=23:00:00
+#StartDay=Sunday
+#EndDay=Friday
+FileLogHeartbeats=N
+HeartBtInt=30
+SocketConnectPort=80
+SocketConnectHost=63.247.112.173
+UseDataDictionary=Y
+DataDictionary=conf/data_dictionary/ICE_FIX42.xml
+LogoutTimeout=2
+LogonTimeout=30
+ResetOnLogon=N
+MillisecondsInTimeStamp=Y
+SendRedundantResendRequests=N
+ValidateFieldsOutOfOrder=N
+# SET THIS ONCE BEFORE STARTING SERVER IF NEEDED TO RESET SEQUENCE NUMBERS
+ResetSeqNums=N
+# GIVE UP SETTINGS
+# GiveUpFirm SHOULD BE A 3 DIGIT FIRM NUMBER
+#GiveUpFirm=
+# CmtaGiveupCD SHOULD BE EITHER GU = GIVE-UP OR SX = SGX OFF-SET
+#CmtaGiveupCD=
+
+# ILINK SELECTOR SETTINGS
+# ONLY USE SELECTORS BELOW WHEN MULTIPLE ILINKS ARE AVAILABLE
+# SESSION FOR ADDITIONAL ILINKS MUST ALSO BE DEFINED ABOVE 
+#
+# MONTH ILINK SELECTOR USED TO PAIR UP ILINK BY MONTH
+#
+#ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.MonthILinkSelector
+#
+# PARENT SYMBOL SELECTOR USED TO PAIR UP ILINK BY PARENT SYMBOL
+#
+#ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector
+#ILink.OZB = 5J0
+#ILink.OZF = 4M6
+#ILink.OZN = 4M6
+#ILink.ZB = 5J0
+
+# Strategy creation settings
+#MaxNumInstrumentsCovered=3
+#MaxNumFuturesCovered=2
+#MaxNumInstrumentsCombo=40
+
+# Supported Security Types
+# Valid values: FUT, OPT
+###NOTE!!!!! NOTE!!!!! NOTE!!!!!
+#the parameter should be SupportedSecuityTypes, NOT SupportedSecurityTypes.  Notice the lack of 'r'.
+SupportedSecuityTypes=OPT
+
+# Supported Security IDs
+#SupportedSecurityIDs=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|36|37|38|39|40|41|42|43|44
+SupportedSecurityIDs=<%=ids%>
+
+# NYBOT Financial Markets
+# These spreads are sell first leg and buy second leg. 
+# All other spreads are the opposite
+FinancialMarkets=28|29|26|39
+
+# ORDER ROUTING REQUIRED CONFIGURATIONS
+Originator.ISV=OptionsCity
+Originator.Location=Desk
+Originator.SecondLevelCompID=
+Originator.SecondLevelSubID=
+Originator.ClearingAccount=<%=traderaccount%>
+Originator.ClearingFirm=<%=clearingfirm%>
+Originator.AccountCode=D
+Originator.CTICode=1
+Originator.CustomerAccountRefId=oc_fix_os

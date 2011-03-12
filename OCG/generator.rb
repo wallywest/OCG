@@ -1,46 +1,42 @@
+$: << File.dirname(__FILE__)
 require 'OCG/CME/cmegenerator'
+#require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
-
 module OCG
 	class OCG::Generator
-		def self.setup(opts)
+		def initialize(opts)
 			@config=opts
 			@globsyms={}
-			p @config
 			@globsyms['symbols']=[]
+			@filewriter=FileWriter.new
 			@config["exchange"].each_pair do |key,val|
-					self.send "#{key}", val
+                                        self.send "#{key}",val
+					@filewriter.exchanges << key unless val["symbols"].nil?
 					@globsyms["symbols"] << val["symbols"].split(",") unless val["symbols"].nil?
 			end
+			@users=@config.select {|k| k=="users"}
 			finalGenerator
 		end
-		def self.finalGenerator 
-			@out=""
-			@dout=""
-			traders = File.read('OCG/templates/populatetraders.eruby')
-			trade = Erubis::Eruby.new(traders)
-			@out << trade.result(@config)
-			symbols = File.read('OCG/templates/populateportfolio.sql.eruby')
-			sym = Erubis::Eruby.new(symbols)
-			@dout << sym.result(@globsyms)
-			writeFile "populatetraders.sql",@out
-			writeFile "populateportfolio.sql",@dout
+		def finalGenerator
+			@filewriter.writeTemplate("default","populatetraders.sql",@users)
+			@filewriter.writeTemplate("default","populateportfolio.sql",@globsyms)
+			@filewriter.writeTemplate("default","quotingcenter.conf",@users)
+			@filewriter.createExchangeHub @config["default"]
+			@filewriter.writeFiles
 		end
-		def self.CME config
-			CME::Generator.new config
+		def CME value
+			CME::Generator.new value,@filewriter
 		end
-		def self.CBOE config
+		def CBOE value
 		end
-		def self.ICE config
+		def ICE value
+			#ICE::Generator.new value,@filewriter
 		end
-		def self.AMEX config
+		def AMEX value
 		end
-		def self.ACTIV config
+		def ACTIV value
 		end
-		def self.CFE config
-		end
-		def self.writeFile name,value
-			File.open("deploy/#{name}","w") {|f| f.write(value) }		
+		def CFE value
 		end
 	end
 end

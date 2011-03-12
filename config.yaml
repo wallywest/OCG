@@ -1,45 +1,32 @@
-customer: CUSTOMER_NAME
+customer: CONSOLIDATED_ICE 
 default: CME
 exchange:
  CME:
-  symbols: ZC,OZC,ZW,OZW,ZM,OZM
-  ip: 172.23.25.149 
-  inteface: eth1
-  type:
-  account:
-
- CBOE:
-  symbols:
-  ip:
-  interface:
-  account:
+  symbols: ZB,OZB,ZF,OZF,ZT,OZT 
+  ip: 10.191.74.8 
+  interface: eth2
 
  ICE:
   symbols:
-  ip:
-  interface:
-  account:
+  sendercompid: 
+  sendersubid: 
+  username:
+  traderid:
+  clearingaccount:
+  clearingfirmid:
 
- AMEX:
-  symbols:
-  ip:
+ CBOE:
+  cas:
   interface:
-  account:
-
- ACTIV:
-  symbols:
-  ip:
-  interface:
-  account:
-
- CFE:
-  symbols:
-  ip: 
-  interface:
-  account:
+  user:
+  password:
+  orderbranch:
+  giveupfirm:
+  orderaccount:
+  ordersubaccount:
+  supportedroductclasses: 
   
 
 users: 
-  BATMAN: wayne 
-  SUPERMAN: kent
-  FLASH: west
+  CHRIS: moag
+  JEFF: melgarde

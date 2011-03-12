@@ -1,6 +1,8 @@
 "Volatility Quoted Options": "" 
 
-"CME Globex Equity Futures": "cme-emini-futures" 
+"CME Globex Equity Futures":
+  name: "cme-emini-futures"
+  bookdepth: "10"
 "CME Globex Equity Options": "cme-emini-options"
 
 "CME Globex Interest Rate Futures": "cme-irate-futures"
