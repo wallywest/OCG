@@ -3,19 +3,46 @@
 "CME Globex Equity Futures":
   name: "cme-emini-futures"
   bookdepth: "10"
-"CME Globex Equity Options": "cme-emini-options"
+  implied: "0"
+"CME Globex Equity Options": 
+  name: "cme-emini-options"
+  bookdepth: "3"
+  implied: "0"
 
-"CME Globex Interest Rate Futures": "cme-irate-futures"
-"CME Globex Interest Rate Options": "cme-irate-options"
+"CME Globex Interest Rate Futures": 
+  name: "cme-irate-futures"
+  bookdepth: "5"
+  implied: "2"
+"CME Globex Interest Rate Options": 
+  name: "cme-irate-options"
+  bookdepth: "1"
+  implied: "0"
 
-"CME Globex FX Futures": "cme-fx-futures"
-"CME Globex FX Options": "cme-fx-options" 
+"CME Globex FX Futures": 
+  name: "cme-fx-futures"
+  bookdepth: "5"
+  implied: "2"
+"CME Globex FX Options": 
+  name: "cme-fx-options"
+  bookdepth: "1"
+  implied: "0" 
 
-"CME Globex Commodity, Industrial Commodity and TRAKRS Futures": "cme-comm-futures"
-"CME Globex Commodity, Industrial Commodity and TRAKRS Options": "cme-comm-options"
-
-"CME Equity Futures - excludes E-mini S&P 500": "cme-equity-futures"
-"CME Equity Options - excludes E-mini S&P 500": "cme-equity-options"
+"CME Globex Commodity, Industrial Commodity and TRAKRS Futures": 
+  name: "cme-comm-futures"
+  bookdepth: " "
+  implied: " "
+"CME Globex Commodity, Industrial Commodity and TRAKRS Options": 
+  name: "cme-comm-options"
+  bookdepth: "1"
+  implied: "0"
+"CME Equity Futures - excludes E-mini S&P 500": 
+  name: "cme-equity-futures"
+  bookdepth: "10"
+  implied: "2"
+"CME Equity Options - excludes E-mini S&P 500": 
+  name: "cme-equity-options"
+  bookdepth: "10"
+  implied: "2"
 
 "Green Exchange Futures":   
 "Green Exchange Options":  
@@ -30,33 +57,87 @@
 
 "Dubai Mercantile Exchange":  
 
-"NYMEX Crude Futures": "nymex-crude-futures"  
-"NYMEX Crude Options": "nymex-crude-options"
+"NYMEX Crude Futures": 
+  name: "nymex-crude-futures"  
+  bookdepth: "10"
+  implied: "2"
+"NYMEX Crude Options": 
+  name: "nymex-crude-options"
+  bookdepth: "3"
+  implied: "0"
 
-"NYMEX Non-Crude Energy Futures": "nymex-noncrude-futures" 
-"NYMEX Non-Crude Energy Options": "nymex-noncrude-options"
+"NYMEX Non-Crude Energy Futures": 
+  name: "nymex-noncrude-futures" 
+  bookdepth: "10"
+  implied: "2"
+"NYMEX Non-Crude Energy Options": 
+  name: "nymex-noncrude-options"
+  bookdepth: "3"
+  implied: "0"
 
-"COMEX Futures": "comex-futures" 
-"COMEX Options": "comex-options"  
+"COMEX Futures": 
+  name: "comex-futures" 
+  bookdepth: "10"
+  implied: "2"
+"COMEX Options": 
+  name: "comex-options"
+  bookdepth: "10"
+  implied: "2"  
 
-"CME FX Futures II": "cme-fx-futures2" 
-"CME FX Options II": "cme-fx-options2"
+"CME FX Futures II": 
+  name:"cme-fx-futures2" 
+  bookdepth: "5"
+  implied: "2"
+"CME FX Options II":
+  name: "cme-fx-options2"
+  bookdepth: "5"
+  implied: "2"
 
-"CBOT Globex Commodity Futures": "cbot-commodity-futures"
-"CBOT Globex Commodity Options": "cbot-commodity-options"
+"CBOT Globex Commodity Futures": 
+  name: "cbot-commodity-futures"
+  bookdepth: "10"
+  implied: "2"
+"CBOT Globex Commodity Options": 
+  name: "cbot-commodity-options"
+  bookdepth: "3"
+  implied: "0"
 
-"CBOT Globex Equity Index Futures": "cbot-equity-futures"
-"CBOT Globex Equity Index Options": "cbot-equity-options"
+"CBOT Globex Equity Index Futures": 
+  name: "cbot-equity-futures"
+  bookdepth: "5"
+  implied: "3"
+  
+"CBOT Globex Equity Index Options":
+  name: "cbot-equity-options"
+  bookdepth: "3"
+  implied: "0"
 
-"CBOT Globex Interest Rate Futures": "cbot-interest-rate-futures"
-"CBOT Globex Interest Rate Options": "cbot-interest-rate-options"
+"CBOT Globex Interest Rate Futures": 
+  name: "cbot-interest-rate-futures"
+  bookdepth: "10"
+  implied: "2"
+"CBOT Globex Interest Rate Options": 
+  name: "cbot-interest-rate-options"
+  bookdepth: "3"
+  implied: "0"
 
-"MGEX Globex Futures": "mgex-futures" 
-"MGEX Globex Options": "mgex-options" 
+"MGEX Globex Futures": 
+  name: "mgex-futures" 
+  bookdepth: "10"
+  implied: "2"
+"MGEX Globex Options": 
+  name: "mgex-options" 
+  bookdepth: "3"
+  implied: "0"
 
-"KCBT Globex Futures": "kcbt-futures" 
-"KCBT Globex Options": "kcbt-options"
-
+"KCBT Globex Futures": 
+  name: "kcbt-futures"
+  bookdepth: "10"
+  implied: "2" 
+"KCBT Globex Options":
+  name: "kcbt-options"
+  bookdepth: "1"
+  implied: "0"
 "NYMEX Metals, Softs, and Alternative Markets & COMEX Futures": 
 "NYMEX Metals, Softs, and Alternative Markets & COMEX Options": 
 
