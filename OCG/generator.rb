@@ -1,6 +1,6 @@
 $: << File.dirname(__FILE__)
 require 'OCG/CME/cmegenerator'
-#require 'OCG/ICE/icegenerator'
+require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
 module OCG
 	class OCG::Generator
@@ -10,9 +10,12 @@ module OCG
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
 			@config["exchange"].each_pair do |key,val|
-                                        self.send "#{key}",val
+					unless val.has_value?(nil)
+					#cleanup laterz
+					self.send "#{key}",val unless val.has_value?(nil)
 					@filewriter.exchanges << key unless val["symbols"].nil?
 					@globsyms["symbols"] << val["symbols"].split(",") unless val["symbols"].nil?
+					end
 			end
 			@users=@config.select {|k| k=="users"}
 			finalGenerator
@@ -30,7 +33,7 @@ module OCG
 		def CBOE value
 		end
 		def ICE value
-			#ICE::Generator.new value,@filewriter
+			ICE::Generator.new value,@filewriter
 		end
 		def AMEX value
 		end

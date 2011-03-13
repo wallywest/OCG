@@ -36,9 +36,9 @@ TargetCompID=ICE
 BeginString=FIX.4.2
 SenderCompID=<%=sendercompid%>
 Password=0pti0nscity
-SenderSubID=<%sendersubid%>
-Username=<%=iceidos%>
-TraderId=<%=iceidtraderid%>
+SenderSubID=<%=sendersubid%>
+Username=<%=username%>
+TraderId=<%=traderid%>
 #SenderLocationID=OptionsCity
 #Account=1234
 #MMAccount=2345
@@ -51,7 +51,7 @@ EndTime=23:00:00
 FileLogHeartbeats=N
 HeartBtInt=30
 SocketConnectPort=80
-SocketConnectHost=63.247.112.173
+SocketConnectHost=63.247.112.193
 UseDataDictionary=Y
 DataDictionary=conf/data_dictionary/ICE_FIX42.xml
 LogoutTimeout=2
@@ -97,7 +97,7 @@ SupportedSecuityTypes=OPT
 
 # Supported Security IDs
 #SupportedSecurityIDs=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|36|37|38|39|40|41|42|43|44
-SupportedSecurityIDs=<%=ids%>
+SupportedSecurityIDs=<%=pipeids%>
 
 # NYBOT Financial Markets
 # These spreads are sell first leg and buy second leg. 
@@ -110,7 +110,7 @@ Originator.Location=Desk
 Originator.SecondLevelCompID=
 Originator.SecondLevelSubID=
 Originator.ClearingAccount=<%=traderaccount%>
-Originator.ClearingFirm=<%=clearingfirm%>
+Originator.ClearingFirm=<%=clearingfirmid%>
 Originator.AccountCode=D
 Originator.CTICode=1
 Originator.CustomerAccountRefId=oc_fix_os
