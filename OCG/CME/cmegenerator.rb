@@ -1,7 +1,5 @@
-#$: << File.dirname(__FILE__)
 require 'nokogiri'
 require 'erubis'
-#figure out bookdepth later
 
 module CME
 class CME::Generator
@@ -12,10 +10,9 @@ class CME::Generator
 
 		f=File.open("#{@dir}/config.xml",'r')
 		@translator=YAML.load_file("#{@dir}/translator.yaml")
-		p @translator
-		debugger
 		@cme=Nokogiri::XML(f)
 		@symbols=@chash["symbols"].split(",")
+		@interface=@chash["interface"]
 		@cmeip=@chash["ip"]
 		@configfiles=%w{idchannels.properties mdchannels.properties}
 		@filewriter=filewriter
@@ -39,7 +36,14 @@ class CME::Generator
 
 	end
 	def addChanName(label)
-		@allnames << "#{@translator[label]} "
+		@allnames << "#{@translator[label]['name']} "
+	end
+	def addConfigs(channel,code,label)
+		 addChanName(label) if @configs["#{channel.path}"].nil?
+                 @configs["#{channel.path}"] ||= {}
+                 @configs["#{channel.path}"].merge!(@translator[label])
+                 configs["#{channel.path}"]["symbols"] ||= []
+                 @configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
 	end
 	def findChannelDetails
 		@configs={}
@@ -50,13 +54,7 @@ class CME::Generator
 			next if @skipid.include?(label)
 			@symbols.each do |sym|
 				code=channel.xpath("products/product[@code='#{sym}']")
-				unless code.empty?
-					addChanName(label) if @configs["#{channel.path}"].nil?
-					@configs["#{channel.path}"] ||= {}
-					@configs["#{channel.path}"]["name"]="#{@translator[label]}"
-					@configs["#{channel.path}"]["symbols"] ||= []
-					@configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
-				end
+				addConfigs(channel,code,label) unless code.empty?
 			end
 		end
 		@configs.keys.each {|x| getConnectionInfo x }
@@ -80,11 +78,13 @@ class CME::Generator
 		@vars["book"]="2"
 		@vars["ibook"]="1"
 		# =====================
-		debugger
 		@configs.each_value do |value|
 			@vars["name"]=value["name"]
 			@id=value["id"]
-			@vars["id"]=@id
+			@vars["id"]=value["id"]
+			@vars["interface"]=@interface
+			@vars["book"]=value["bookdepth"]
+			@vars["ibook"]=value["implied"]
 			@vars["symbols"]=value["symbols"].join(", ")
 			@vars["host"]=value["connAtts"]["#{@id}NA"][0]
 			@vars["port"]=value["connAtts"]["#{@id}NA"][1]
