@@ -94,8 +94,8 @@ class CME::Generator
                         @vars["portib"]=value["connAtts"]["#{@id}IB"][1]
                         @vars["hostsa"]=value["connAtts"]["#{@id}SA"][0]
                         @vars["hostsb"]=value["connAtts"]["#{@id}SA"][1]
-			%w{idchannels.properties mdchannels.properties channels.list}.each do |conf|
-				write "#{conf}", @vars
+			%w{idchannels.properties mdchannels.properties channels.list}.each do |file|
+				write "#{file}", @vars
 			end
 		end
 		write "demux.conf",{:ip => @cmeip}
