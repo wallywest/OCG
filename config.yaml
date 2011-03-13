@@ -7,13 +7,14 @@ exchange:
   interface: eth2
 
  ICE:
-  symbols:
-  sendercompid: 
-  sendersubid: 
-  username:
-  traderid:
-  clearingaccount:
-  clearingfirmid:
+  symbols: TF,SB
+  sendercompid: 5658 
+  sendersubid: 8
+  username: atroptos
+  traderid: atropt-fx
+  traderaccount: 31504502
+  clearingfirmid: 5681
+  psusername: atroptps
 
  CBOE:
   cas:
