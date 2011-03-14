@@ -7,7 +7,7 @@ exchange:
   interface: eth2
 
  ICE:
-  symbols: TF,SB
+  symbols: TF,SB,SZ,KJ
   sendercompid: 5658 
   sendersubid: 8
   username: atroptos
@@ -25,9 +25,14 @@ exchange:
   giveupfirm:
   orderaccount:
   ordersubaccount:
-  supportedroductclasses: 
-  
+  supportedroductclasses:
+
+ ACTIV:
+
+ AMEX:
 
 users: 
   CHRIS: moag
   JEFF: melgarde
+
+tradeaccounts:
