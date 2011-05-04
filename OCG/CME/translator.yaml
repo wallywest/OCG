@@ -18,7 +18,7 @@
   bookdepth: "1"
   implied: "0"
 
-"CME Globex FX Futures": 
+"CME Globex FX Futures":
   name: "cme-fx-futures"
   bookdepth: "5"
   implied: "2"
@@ -29,8 +29,8 @@
 
 "CME Globex Commodity, Industrial Commodity and TRAKRS Futures": 
   name: "cme-comm-futures"
-  bookdepth: " "
-  implied: " "
+  bookdepth: "5"
+  implied: "2"
 "CME Globex Commodity, Industrial Commodity and TRAKRS Options": 
   name: "cme-comm-options"
   bookdepth: "1"
@@ -84,10 +84,11 @@
   bookdepth: "10"
   implied: "2"  
 
-"CME FX Futures II": 
-  name:"cme-fx-futures2" 
+"CME FX Futures II":
+  name: "cme-fx-futures2"
   bookdepth: "5"
   implied: "2"
+
 "CME FX Options II":
   name: "cme-fx-options2"
   bookdepth: "5"
@@ -138,7 +139,9 @@
   name: "kcbt-options"
   bookdepth: "1"
   implied: "0"
-"NYMEX Metals, Softs, and Alternative Markets & COMEX Futures": 
-"NYMEX Metals, Softs, and Alternative Markets & COMEX Options": 
+"NYMEX Metals, Softs, and Alternative Markets & COMEX Futures":
+  name: "nymex-sc-futures" 
+"NYMEX Metals, Softs, and Alternative Markets & COMEX Options":
+  name: "nymex-sc-options" 
 
 "Inter Exchange Spreads": 

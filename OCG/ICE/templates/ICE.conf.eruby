@@ -9,7 +9,7 @@
 #
 # Valid market data types are MULTICAST or TCP (Default is TCP)
 ##################################################
-MarketDataType =
+MarketDataType = MULTICAST
 
 ##################################################
 # QUOTE GOVERNOR SETTINGS
@@ -35,7 +35,7 @@ TargetCompID=ICE
 [SESSION]
 BeginString=FIX.4.2
 SenderCompID=<%=sendercompid%>
-Password=0pti0nscity
+Password=Opti0nscity
 SenderSubID=<%=sendersubid%>
 Username=<%=username%>
 TraderId=<%=traderid%>
@@ -44,8 +44,9 @@ TraderId=<%=traderid%>
 #MMAccount=2345
 #CTICode=1
 #CustomerOrFirm=1
-StartTime=23:30:00
-EndTime=23:00:00
+TimeZone=America/Chicago
+StartTime=18:30:00
+EndTime=17:30:00
 #StartDay=Sunday
 #EndDay=Friday
 FileLogHeartbeats=N
@@ -108,7 +109,7 @@ FinancialMarkets=28|29|26|39
 Originator.ISV=OptionsCity
 Originator.Location=Desk
 Originator.SecondLevelCompID=
-Originator.SecondLevelSubID=
+Originator.SecondLevelSubID=<%=traderusername%>
 Originator.ClearingAccount=<%=traderaccount%>
 Originator.ClearingFirm=<%=clearingfirmid%>
 Originator.AccountCode=D

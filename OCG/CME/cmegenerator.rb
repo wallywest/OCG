@@ -88,13 +88,15 @@ class CME::Generator
 			@vars["symbols"]=value["symbols"].join(", ")
 			@vars["host"]=value["connAtts"]["#{@id}NA"][0]
 			@vars["port"]=value["connAtts"]["#{@id}NA"][1]
-                        @vars["hostia"]=value["connAtts"]["#{@id}IA"][0]
-                        @vars["portia"]=value["connAtts"]["#{@id}IA"][1]
-                        @vars["hostib"]=value["connAtts"]["#{@id}IB"][0]
-                        @vars["portib"]=value["connAtts"]["#{@id}IB"][1]
-                        @vars["hostsa"]=value["connAtts"]["#{@id}SA"][0]
-                        @vars["hostsb"]=value["connAtts"]["#{@id}SA"][1]
-			%w{idchannels.properties mdchannels.properties channels.list}.each do |file|
+      @vars["hostb"]=value["connAtts"]["#{@id}NB"][0]
+      @vars["portb"]=value["connAtts"]["#{@id}NB"][1]
+      @vars["hostia"]=value["connAtts"]["#{@id}IA"][0]
+      @vars["portia"]=value["connAtts"]["#{@id}IA"][1]
+      @vars["hostib"]=value["connAtts"]["#{@id}IB"][0]
+      @vars["portib"]=value["connAtts"]["#{@id}IB"][1]
+      @vars["hostsa"]=value["connAtts"]["#{@id}SA"][0]
+      @vars["hostsb"]=value["connAtts"]["#{@id}SA"][1]
+      %w{idchannels.properties mdchannels.properties channels.list}.each do |file|
 				write "#{file}", @vars
 			end
 		end

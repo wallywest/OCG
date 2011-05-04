@@ -1,10 +1,12 @@
 module ICE
 class ICE::Generator
 	def initialize chash,filewriter
-                @chash=chash
+    @chash=chash
 		@filewriter=filewriter
-                @dir="#{$:.last}/ICE"
-                @translator=YAML.load_file("#{@dir}/translator.yaml")
+    @dir="#{$:.last}/ICE"
+    @translator=YAML.load_file("#{@dir}/translator.yaml")
+    @filestowrite=["ICE.conf","impactjava.properties"]
+
 		formatSymbols
 		writeTemplates
 	end
@@ -17,7 +19,7 @@ class ICE::Generator
 		@chash.merge!("ids" => "#{ids}","pipeids" => "#{pipe}")
 	end
 	def writeTemplates
-		%w{ ICE.conf impactjava.properties }.each do |f|
+		@filestowrite.each do |f|
 			@filewriter.writeTemplate "ICE",f,@chash
 		end	
 	end

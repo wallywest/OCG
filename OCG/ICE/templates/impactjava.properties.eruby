@@ -9,7 +9,7 @@ mdf.client.username=<%= psusername %>
 #mdf.client.username=option_ps
 
 # Password for API Test and Performance System
-mdf.client.password=0pti0nscity
+mdf.client.password=Opti0nscity
 
 # Market types we are interested
 # 5 - Brent, 9 - WTI, 99 - Invalid Market Type (just test the error response)

@@ -1,3 +1,4 @@
+require 'fileutils'
 class FileWriter
 	attr_accessor :exchanges
 	def initialize
@@ -25,7 +26,7 @@ class FileWriter
 	def writeFiles
 		@filenames.uniq.each do |file|
 			data=instance_variable_get("@#{file.gsub(/\..*/,"")}")
-			File.open("deploy/#{file}",'a') {|f| f.write(data) }
+      File.open("deploy/#{file}",'a') {|f| f.write(data) }
 		end
 
 	end

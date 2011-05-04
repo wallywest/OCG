@@ -3,9 +3,12 @@ $: << File.dirname(__FILE__)
 require 'OCG/generator.rb'
 require 'OCG/utils/filewriter.rb'
 require 'yaml'
+require 'slop'
 
-#need to work out: multiple demux ports, cme ip connection
-@config=YAML.load_file("config.yaml")
+opts=Slop.parse do
+    on :e, :exchange, "specify exchange config to write"
+end
+#need to work out: multiple demux ports
+@config=YAML.load_file("conf/config.yaml")
 # Fresh install
-OCG::Generator::new(@config)
-# Updates
+OCG::Generator::new(@config,opts.to_hash)

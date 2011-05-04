@@ -1,9 +1,9 @@
-INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`) VALUES (1, 'support', 'iliketrading', NOW());
-INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `accountType`) VALUES (2, 'OCAPI', 'ocapi', NOW(), 2);
+INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`,`role`) VALUES (1, 'support', 'iliketrading', NOW(),2);
+INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `accountType`,`role`) VALUES (2, 'OCAPI', 'ocapi', NOW(), 2, 1);
 <% scount=3 %>
 <% sdefault=1 %>
 <% for u in users do %>
-INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `isDefault`) VALUES (<%= scount %>, '<%= u[0] %>', '<%= u[1] %>', NOW(), <%= sdefault %>);
+INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `isDefault`, `role`) VALUES (<%= scount %>, '<%= u[0] %>', '<%= u[1] %>', NOW(), <%= sdefault %>, 1);
 <% scount+=1 %>
 <% sdefault=0 %>
 <% end %>
