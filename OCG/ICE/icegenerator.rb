@@ -18,6 +18,9 @@ class ICE::Generator
 		pipe=ids.gsub(/,/,"|")
 		@chash.merge!("ids" => "#{ids}","pipeids" => "#{pipe}")
 	end
+  def writeXml
+
+  end
 	def writeTemplates
 		@filestowrite.each do |f|
 			@filewriter.writeTemplate "ICE",f,@chash

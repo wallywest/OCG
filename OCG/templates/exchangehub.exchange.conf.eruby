@@ -126,4 +126,3 @@ QuotingExchange = <%= defaultexchange %>
 # 	DisableBookDepth = OPTION, FUTURE
 #################################################################
 #DisableBookDepth = OPTION
-

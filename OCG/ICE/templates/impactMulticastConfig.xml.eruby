@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<multicastClientConfig>
+
+  <currentEnvironment>
+    <current name="PROD"/>
+  </currentEnvironment>
+
+  <currentContext>
+  <!--  Valid values are priceLevel or fullOrderDepth -->
+    <context name="priceLevel"/>
+  </currentContext>
+
+  <enableSettlements>
+  <!--  Valid values are true or false  -->
+    <settlements enabled="false"/>
+  </enableSettlements>
+
+  <supportedSecurityTypes>
+  <!--  Comma delimited O = Options, F = Futures, U = UDS -->
+  <!--  Example: O,F,U for supporting all security types  -->
+    <type name="F,O,U"/>
+  </supportedSecurityTypes>
+    <environment name="PROD">
+                <!-- Optionscity TCP Connection Information -->
+                <tcp ip="63.247.112.185" port="80"
+                        userName=<%= psusername %>
+                        password="Opti0nscity"/>
+                <multicast>
+                      <% for g in group do %>
+                        <group name=<%=groupname%>>
+                        <fullOrderDepth>
+                            <live ip=<%=liveip%> port=<%liveport%>/>
+                            <snapshot ip=<%snapshotip%> port=<%snapshotport%>/>
+                        </fullOrderDepth>
+                        <priceLevel>
+                             <live ip=<%=pricelevelip%> port=<%=priceliveport%>/>
+                             <snapshot ip=<%=snaplevelip%> port=<%=pricesnapport%>/>
+                        </priceLevel>
+                        <marketTypesInGroup>
+                             <supported type=<%=ids%>/>
+                        </marketTypesInGroup>
+                        </group>
+                      <% end %>
+                </multicast>
+    </environment>
+  <parameters>
+    <multicastNetworkInterface><%=interface=></multicastNetworkInterface>
+    <multicastInactivityThreshold>30000</multicastInactivityThreshold>
+  </parameters>  
+  <multicastGroups>
+          <% for g in group do %>
+          <multicastGroup name=<%=groupname%>/>
+          <% end %>
+  </multicastGroups>
+  <allMarketTypes>
+          <% for market in markettype do %>
+                <marketType code=<%=marketid%> name=<%=marketname%>/>
+                        <multicastGroup name=<%=marketgroupname%>/>
+                        <multicastGroup name=<%=marketgroupoption%>/>
+                </marketType>
+          <% end %>
+  </allMarketTypes>
+</multicastClientConfig>
