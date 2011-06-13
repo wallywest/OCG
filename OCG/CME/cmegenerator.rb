@@ -74,9 +74,6 @@ class CME::Generator
 		@mdchan=[]
 		@channel=[]
 		@vars["ip"]=@cmeip
-		# find out these values
-		@vars["book"]="2"
-		@vars["ibook"]="1"
 		# =====================
 		@configs.each_value do |value|
 			@vars["name"]=value["name"]

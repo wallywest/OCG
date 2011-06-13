@@ -1,8 +1,17 @@
 symbols:
-  CC: 20
-  SB: 24
+  CC: 
+    id: "20"
+    name: "Cocoa"
+    group: "ICE Futures US Agricultures"
+  SB: 
+    id: "24"
+    name: "Sugar No 11"
+    group: "ICE Futures US Agricultures"
   SE: 25
-  SF: 41
+  SF: 
+    id: "41"
+    name: "Sugar No 16"
+    group: "ICE Futures US Agricultures"
   WBS: 9
   UHO: 13
   DX: 26
@@ -16,6 +25,34 @@ symbols:
   GWM: 3
   PPM: 7
   BPM: 8
-  OJ: 23
-  KC: 21
-  CT: 22
+  OJ: 
+    id: "23"
+    name: "FCOJ A"
+    group: "ICE Futures US Agricultures"
+  KC: 
+    id: "21"
+    name: "Coffee C"
+    group: "ICE Futures US Agricultures"
+  CT: 
+    id: "22"
+    name: "Cotton No 2"
+    group: "ICE Futures US Agricultures"
+
+feeds:
+  ICE Futures US Agricultures:
+    orderdepth:
+      liveip: "233.156.208.0"
+      liveport: "20000"
+      snapshotip: "233.156.208.1"
+      snapshotport: "20001"
+    pricelevel:
+      liveip: "233.156.208.2"
+      liveport: "20002"
+      snapshotip: "233.156.208.3"
+      snapshotport: "20003"
+  ICE Futures US Agricultures Options:
+    pricelevel:
+      liveip: "233.156.208.42"
+      liveport: "20042"
+      snapshotip: "233.156.208.43"
+      snapshotport: "20043"
