@@ -9,7 +9,8 @@ module OCG
 			@globsyms={}
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
-			@config["exchange"].each_pair do |key,val|
+			
+      @config["exchange"].each_pair do |key,val|
 				unless val.has_value?(nil)
 					self.send "#{key}",val 
 					@filewriter.exchanges << key 
@@ -20,25 +21,33 @@ module OCG
 			finalGenerator if opts["exchange"].nil?
 			@filewriter.writeFiles
 		end
+    
 		def finalGenerator
 			@filewriter.writeTemplate("default","populatetraders.sql",@users)
 			@filewriter.writeTemplate("default","populateportfolio.sql",@globsyms)
 			@filewriter.writeTemplate("default","quotingcenter.conf",@users)
+      @filewriter.writeTemplate("default","customer.conf",{"customer" => @config["customer"]})
 			@filewriter.createExchangeHub @config["default"]
 		end
+  
 		def CME value
 			CME::Generator.new value,@filewriter
 		end
+  
 		def CBOE value
 		end
+  
 		def ICE value
 			ICE::Generator.new value,@filewriter
 		end
-		def AMEX value
+		
+    def AMEX value
 		end
-		def ACTIV value
+		
+    def ACTIV value
 		end
-		def CFE value
+		
+    def CFE value
 		end
 	end
 end

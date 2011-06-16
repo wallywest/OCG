@@ -32,8 +32,7 @@ class ICE::Generator
     end
     
     pipe=@groups[1]["ids"].gsub(/,/,"|")
-    @chash.merge!({"markettype" => @markettypes,"groups" => @groups, "pipeids" => "#{pipe}"})
-    debugger
+    @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{pipe}"})
 	end
   
 	def writeTemplates

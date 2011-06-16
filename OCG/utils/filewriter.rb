@@ -12,7 +12,8 @@ class FileWriter
 	
   def readFile tfile,&block
 		f=File.read("#{@path}/#{tfile}.eruby")
-		yield Erubis::Eruby.new(f)
+		#yield Erubis::Eruby.new(f)
+    yield Erubis::EscapedEruby.new(f)
 	end
 	
   def writeTemplate(type,tfile,hinput)
