@@ -63,10 +63,10 @@
   </multicastGroups>
   
   <allMarketTypes>
-          <% for market in markettype do %>
-                <marketType code="<%=market["id"]%>" name="<%=market["name"]%>"/>
-                        <multicastGroup name="<%=market["group"]%>"/>
-                        <multicastGroup name="<%=market["group"]%> Options"/>
+          <% for m in mtypes do %>
+                <marketType code="<%=m["id"]%>" name="<%=m["name"]%>">
+                    <multicastGroup name="<%=m["group"]%>"/>
+                    <multicastGroup name="<%=m["group"]%> Options"/>
                 </marketType>
           <% end %>
   </allMarketTypes>

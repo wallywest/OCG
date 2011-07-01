@@ -22,9 +22,15 @@ class ICE::Generator
       markettype = @translator["symbols"]["#{sym}"]
       @ids << @translator["symbols"]["#{sym}"]["id"]
       @markettypes << markettype
+      @option=@translator["symbols"]["#{sym}"]["options"]
       unless @multicastgroups.include?("#{markettype["group"]}")
         @multicastgroups << markettype["group"]
-        @multicastgroups << "#{markettype["group"]} Options"
+        debugger
+        if @option.nil?
+          @multicastgroups << "#{markettype["group"]} Options"
+        else
+          @multicastgroups << "#{@option}" 
+        end
       end
     end
     @multicastgroups.each do |grp|
@@ -33,6 +39,7 @@ class ICE::Generator
     
     pipe=@groups[1]["ids"].gsub(/,/,"|")
     @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{pipe}"})
+    debugger
 	end
   
 	def writeTemplates

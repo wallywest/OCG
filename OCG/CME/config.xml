@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration environment="Production" updated="2011/06/05-21:10:25">
+<configuration environment="Production" updated="2011/06/29-21:10:30">
         <channel id="6" label="Volatility Quoted Options">
                 <products>
                         <product code="V6A">
                                 <group code="3A">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="V6B">
+                                <group code="4B">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -38,11 +43,6 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VA2">
-                                <group code="3A">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="VA3">
                                 <group code="3A">
                                         <subchannel>1</subchannel>
@@ -53,12 +53,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VAA">
+                        <product code="VA5">
                                 <group code="3A">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VAB">
+                        <product code="VAA">
                                 <group code="3A">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -73,12 +73,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VB1">
-                                <group code="B3">
+                        <product code="VAE">
+                                <group code="3A">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VB2">
+                        <product code="VB1">
                                 <group code="B3">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -93,12 +93,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VBA">
+                        <product code="VB5">
                                 <group code="B3">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VBB">
+                        <product code="VBA">
                                 <group code="B3">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -113,12 +113,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VC1">
-                                <group code="3C">
+                        <product code="VBE">
+                                <group code="B3">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VC2">
+                        <product code="VC1">
                                 <group code="3C">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -133,12 +133,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VCA">
+                        <product code="VC5">
                                 <group code="3C">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VCB">
+                        <product code="VCA">
                                 <group code="3C">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -153,12 +153,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VE1">
-                                <group code="3E">
+                        <product code="VCE">
+                                <group code="3C">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VE2">
+                        <product code="VE1">
                                 <group code="3E">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -173,12 +173,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VJ1">
-                                <group code="3Y">
+                        <product code="VE5">
+                                <group code="3E">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VJ2">
+                        <product code="VJ1">
                                 <group code="3Y">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -193,12 +193,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VJA">
+                        <product code="VJ5">
                                 <group code="3Y">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VJB">
+                        <product code="VJA">
                                 <group code="3Y">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -213,12 +213,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VS1">
-                                <group code="S7">
+                        <product code="VJE">
+                                <group code="3Y">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VS2">
+                        <product code="VS1">
                                 <group code="S7">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -233,12 +233,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VSA">
+                        <product code="VS5">
                                 <group code="S7">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VSB">
+                        <product code="VSA">
                                 <group code="S7">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -253,12 +253,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VTA">
-                                <group code="3E">
+                        <product code="VSE">
+                                <group code="S7">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="VTB">
+                        <product code="VTA">
                                 <group code="3E">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -269,6 +269,11 @@
                                 </group>
                         </product>
                         <product code="VTD">
+                                <group code="3E">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="VTE">
                                 <group code="3E">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -516,17 +521,22 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="EW1">
+                                <group code="1V">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="EW1">
+                                <group code="EW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="EW2">
                                 <group code="1V">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="EW2">
-                                <group code="EW">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="EW4">
                                 <group code="EW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -839,18 +849,23 @@
                                         <subchannel>3</subchannel>
                                 </group>
                         </product>
-                        <product code="E03">
-                                <group code="E0">
-                                        <subchannel>3</subchannel>
-                                </group>
-                        </product>
-                        <product code="E03">
+                        <product code="E02">
                                 <group code="U$">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="E05">
+                                <group code="E0">
+                                        <subchannel>3</subchannel>
+                                </group>
+                        </product>
                         <product code="EJ">
                                 <group code="EY">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="EJ">
+                                <group code="J$">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -886,6 +901,11 @@
                         </product>
                         <product code="GE3">
                                 <group code="E2">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="GE3">
+                                <group code="U$">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -1202,17 +1222,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="2O">
-                                <group code="XJ">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="3O">
                                 <group code="XJ">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="4O">
+                                <group code="XJ">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="5O">
                                 <group code="XJ">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1232,17 +1252,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6A2">
-                                <group code="ZA">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="6A3">
                                 <group code="ZA">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="6A4">
+                                <group code="ZA">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="6A5">
                                 <group code="ZA">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1262,22 +1282,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6B2">
-                                <group code="2B">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="6B2">
-                                <group code="XB">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="6B3">
                                 <group code="XB">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="6B4">
+                                <group code="XB">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="6B5">
                                 <group code="XB">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1297,17 +1312,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6J2">
-                                <group code="XJ">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="6J3">
                                 <group code="XJ">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="6J4">
+                                <group code="XJ">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="6J5">
                                 <group code="XJ">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1327,17 +1342,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6S2">
-                                <group code="XS">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="6S3">
                                 <group code="XS">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="6S4">
+                                <group code="XS">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="6S5">
                                 <group code="XS">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1472,11 +1487,6 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="XA2">
-                                <group code="ZA">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="XA3">
                                 <group code="ZA">
                                         <subchannel>1</subchannel>
@@ -1487,8 +1497,18 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="XA5">
+                                <group code="ZA">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="XAD">
                                 <group code="ZA">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="XB">
+                                <group code="2B">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -1498,11 +1518,6 @@
                                 </group>
                         </product>
                         <product code="XB1">
-                                <group code="XB">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="XB2">
                                 <group code="XB">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -1517,18 +1532,13 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="XJ">
-                                <group code="2J">
+                        <product code="XB5">
+                                <group code="XB">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="XJ">
                                 <group code="XJ">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="XS">
-                                <group code="2S">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -1542,17 +1552,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="XS2">
-                                <group code="XS">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="XS3">
                                 <group code="XS">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="XS4">
+                                <group code="XS">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="XS5">
                                 <group code="XS">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -3466,6 +3476,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H05">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H0F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -3517,6 +3532,11 @@
                                 </group>
                         </product>
                         <product code="H14">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="H15">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -3576,6 +3596,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H25">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H2F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -3627,6 +3652,11 @@
                                 </group>
                         </product>
                         <product code="H34">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="H35">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -3686,6 +3716,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H45">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H4F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -3737,6 +3772,11 @@
                                 </group>
                         </product>
                         <product code="H54">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="H55">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -3796,6 +3836,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H65">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H6F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -3847,6 +3892,11 @@
                                 </group>
                         </product>
                         <product code="H74">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="H75">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -3906,6 +3956,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H85">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H8F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -3961,6 +4016,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="H95">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="H9F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -4012,6 +4072,11 @@
                                 </group>
                         </product>
                         <product code="HA4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="HA5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -4181,6 +4246,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="HK5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="HKF">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -4306,6 +4376,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="HQ5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="HQF">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -4357,6 +4432,11 @@
                                 </group>
                         </product>
                         <product code="HR4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="HR5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -4461,6 +4541,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="HV5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="HVF">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -4512,6 +4597,11 @@
                                 </group>
                         </product>
                         <product code="HW4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="HW5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -5136,6 +5226,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="KS5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="KSJ">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -5292,6 +5387,11 @@
                                 </group>
                         </product>
                         <product code="KX4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="KX5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -5651,11 +5751,6 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="PCT">
-                                <group code="M3">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="PR">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -5911,6 +6006,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="V35">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="V3F">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -6106,6 +6206,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="VF5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="VFF">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -6157,6 +6262,11 @@
                                 </group>
                         </product>
                         <product code="VG4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="VG5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -6216,6 +6326,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="VH5">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="VHF">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
@@ -6267,6 +6382,11 @@
                                 </group>
                         </product>
                         <product code="VK4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="VK5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -6362,6 +6482,11 @@
                                 </group>
                         </product>
                         <product code="VU4">
+                                <group code="HW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="VU5">
                                 <group code="HW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -6625,8 +6750,18 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="CB">
+                                <group code="C3">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="CSC">
                                 <group code="CQ">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="CSC">
+                                <group code="CX">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -6834,11 +6969,6 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="EFE">
-                                <group code="EF">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="EMD">
                                 <group code="ME">
                                         <subchannel>3</subchannel>
@@ -6851,11 +6981,6 @@
                         </product>
                         <product code="EMF">
                                 <group code="FN">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="EMI">
-                                <group code="EF">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -7059,13 +7184,18 @@
         </channel>
         <channel id="16" label="CME Equity Options - excludes E-mini S&amp;P 500 ">
                 <products>
+                        <product code="DN1">
+                                <group code="XH">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="DN2">
                                 <group code="XH">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="DN4">
-                                <group code="XH">
+                        <product code="EMD">
+                                <group code="8V">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -7084,17 +7214,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="EV2">
-                                <group code="4V">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="EV2">
+                        <product code="EV1">
                                 <group code="OS">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="EV4">
+                        <product code="EV2">
                                 <group code="OS">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -7114,12 +7239,17 @@
                                         <subchannel>2</subchannel>
                                 </group>
                         </product>
-                        <product code="QN2">
+                        <product code="QN1">
+                                <group code="2V">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="QN1">
                                 <group code="NW">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="QN4">
+                        <product code="QN2">
                                 <group code="NW">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -8524,12 +8654,12 @@
                                 </group>
                         </product>
                         <product code="BR:SFI">
-                                <group code="BR:N4">
+                                <group code="BR:N3">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="BR:SOJ">
-                                <group code="BR:N2">
+                        <product code="BR:SFI">
+                                <group code="BR:N4">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -8545,6 +8675,11 @@
                         </product>
                         <product code="BR:T10">
                                 <group code="BR:O2">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="BR:TF0">
+                                <group code="BR:X0">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -8575,6 +8710,21 @@
                         </product>
                         <product code="BR:TF6">
                                 <group code="BR:X6">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="BR:TF7">
+                                <group code="BR:X7">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="BR:TF8">
+                                <group code="BR:X8">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="BR:TF9">
+                                <group code="BR:X9">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -8964,6 +9114,152 @@
                         </connection>
                 </connections>
         </channel>
+        <channel id="26" label="MexDer Futures">
+                <products></products>
+                <connections>
+                        <connection id="26H7A">
+                                <type feed-type="H">Historical Replay</type>
+                                <protocol>TCP/IP</protocol>
+                                <host-ip>65.164.7.17</host-ip>
+                                <host-ip>69.50.113.177</host-ip>
+                                <port>10000</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="26IA">
+                                <type feed-type="I">Incremental</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.120</ip>
+                                <host-ip>205.209.220.40</host-ip>
+                                <host-ip>205.209.222.40</host-ip>
+                                <host-ip>65.164.7.38</host-ip>
+                                <host-ip>65.164.7.39</host-ip>
+                                <port>10050</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="26IB">
+                                <type feed-type="I">Incremental</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.120</ip>
+                                <host-ip>209.133.24.14</host-ip>
+                                <host-ip>209.133.24.51</host-ip>
+                                <port>10050</port>
+                                <feed>B</feed>
+                        </connection>
+                        <connection id="26NA">
+                                <type feed-type="N">Instrument Replay</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.122</ip>
+                                <host-ip>205.209.220.37</host-ip>
+                                <host-ip>205.209.222.37</host-ip>
+                                <host-ip>65.164.7.40</host-ip>
+                                <host-ip>65.164.7.41</host-ip>
+                                <port>12050</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="26NB">
+                                <type feed-type="N">Instrument Replay</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.122</ip>
+                                <host-ip>209.133.24.49</host-ip>
+                                <host-ip>209.133.24.50</host-ip>
+                                <port>12050</port>
+                                <feed>B</feed>
+                        </connection>
+                        <connection id="26SA">
+                                <type feed-type="S">Snapshot</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.121</ip>
+                                <host-ip>205.209.220.37</host-ip>
+                                <host-ip>205.209.222.37</host-ip>
+                                <host-ip>65.164.7.40</host-ip>
+                                <host-ip>65.164.7.41</host-ip>
+                                <port>11050</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="26SB">
+                                <type feed-type="S">Snapshot</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.121</ip>
+                                <host-ip>209.133.24.49</host-ip>
+                                <host-ip>209.133.24.50</host-ip>
+                                <port>11050</port>
+                                <feed>B</feed>
+                        </connection>
+                </connections>
+        </channel>
+        <channel id="27" label="MexDer Options">
+                <products></products>
+                <connections>
+                        <connection id="27H7A">
+                                <type feed-type="H">Historical Replay</type>
+                                <protocol>TCP/IP</protocol>
+                                <host-ip>65.164.7.17</host-ip>
+                                <host-ip>69.50.113.177</host-ip>
+                                <port>10000</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="27IA">
+                                <type feed-type="I">Incremental</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.123</ip>
+                                <host-ip>205.209.220.40</host-ip>
+                                <host-ip>205.209.222.40</host-ip>
+                                <host-ip>65.164.7.38</host-ip>
+                                <host-ip>65.164.7.39</host-ip>
+                                <port>10051</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="27IB">
+                                <type feed-type="I">Incremental</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.123</ip>
+                                <host-ip>209.133.24.14</host-ip>
+                                <host-ip>209.133.24.51</host-ip>
+                                <port>10051</port>
+                                <feed>B</feed>
+                        </connection>
+                        <connection id="27NA">
+                                <type feed-type="N">Instrument Replay</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.125</ip>
+                                <host-ip>205.209.220.37</host-ip>
+                                <host-ip>205.209.222.37</host-ip>
+                                <host-ip>65.164.7.40</host-ip>
+                                <host-ip>65.164.7.41</host-ip>
+                                <port>12051</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="27NB">
+                                <type feed-type="N">Instrument Replay</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.125</ip>
+                                <host-ip>209.133.24.49</host-ip>
+                                <host-ip>209.133.24.50</host-ip>
+                                <port>12051</port>
+                                <feed>B</feed>
+                        </connection>
+                        <connection id="27SA">
+                                <type feed-type="S">Snapshot</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.26.124</ip>
+                                <host-ip>205.209.220.37</host-ip>
+                                <host-ip>205.209.222.37</host-ip>
+                                <host-ip>65.164.7.40</host-ip>
+                                <host-ip>65.164.7.41</host-ip>
+                                <port>11051</port>
+                                <feed>A</feed>
+                        </connection>
+                        <connection id="27SB">
+                                <type feed-type="S">Snapshot</type>
+                                <protocol>UDP/IP</protocol>
+                                <ip>224.0.27.124</ip>
+                                <host-ip>209.133.24.49</host-ip>
+                                <host-ip>209.133.24.50</host-ip>
+                                <port>11051</port>
+                                <feed>B</feed>
+                        </connection>
+                </connections>
+        </channel>
         <channel id="28" label="Dubai Mercantile Exchange">
                 <products>
                         <product code="OQD">
@@ -9095,6 +9391,11 @@
                                         <subchannel>2</subchannel>
                                 </group>
                         </product>
+                        <product code="BZL">
+                                <group code="TM">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="BZT">
                                 <group code="WT">
                                         <subchannel>1</subchannel>
@@ -9108,6 +9409,11 @@
                         <product code="CL">
                                 <group code="CL">
                                         <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="CLL">
+                                <group code="TM">
+                                        <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="CLT">
@@ -9138,6 +9444,11 @@
                         <product code="HO">
                                 <group code="CL">
                                         <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="HOL">
+                                <group code="TM">
+                                        <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="HOT">
@@ -9193,6 +9504,11 @@
                         <product code="RB">
                                 <group code="CL">
                                         <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="RBL">
+                                <group code="TM">
+                                        <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="RBT">
@@ -9902,6 +10218,11 @@
         <channel id="35" label="NYMEX Crude Options">
                 <products>
                         <product code="BE">
+                                <group code="1Z">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="BE">
                                 <group code="OT">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -10279,6 +10600,11 @@
                         </product>
                         <product code="HXE">
                                 <group code="1U">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="HXE">
+                                <group code="2U">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -10661,17 +10987,17 @@
                                         <subchannel>2</subchannel>
                                 </group>
                         </product>
-                        <product code="2Q">
-                                <group code="XT">
-                                        <subchannel>2</subchannel>
-                                </group>
-                        </product>
                         <product code="3Q">
                                 <group code="XT">
                                         <subchannel>2</subchannel>
                                 </group>
                         </product>
                         <product code="4Q">
+                                <group code="XT">
+                                        <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="5Q">
                                 <group code="XT">
                                         <subchannel>2</subchannel>
                                 </group>
@@ -10691,11 +11017,6 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6C2">
-                                <group code="XD">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="6C3">
                                 <group code="XD">
                                         <subchannel>1</subchannel>
@@ -10706,6 +11027,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="6C5">
+                                <group code="XD">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="6E">
                                 <group code="2E">
                                         <subchannel>1</subchannel>
@@ -10722,16 +11048,6 @@
                                 </group>
                         </product>
                         <product code="6E1">
-                                <group code="XT">
-                                        <subchannel>2</subchannel>
-                                </group>
-                        </product>
-                        <product code="6E2">
-                                <group code="2E">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
-                        <product code="6E2">
                                 <group code="XT">
                                         <subchannel>2</subchannel>
                                 </group>
@@ -10742,6 +11058,11 @@
                                 </group>
                         </product>
                         <product code="6E4">
+                                <group code="XT">
+                                        <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="6E5">
                                 <group code="XT">
                                         <subchannel>2</subchannel>
                                 </group>
@@ -10771,12 +11092,12 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6R3">
+                        <product code="6R4">
                                 <group code="UO">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="6R4">
+                        <product code="6R5">
                                 <group code="UO">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -10841,17 +11162,17 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
-                        <product code="XD2">
-                                <group code="XD">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="XD3">
                                 <group code="XD">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="XD4">
+                                <group code="XD">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="XD5">
                                 <group code="XD">
                                         <subchannel>1</subchannel>
                                 </group>
@@ -11315,6 +11636,11 @@
                                 </group>
                         </product>
                         <product code="ZC1">
+                                <group code="CY">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZC1">
                                 <group code="OC">
                                         <subchannel>2</subchannel>
                                 </group>
@@ -11335,6 +11661,11 @@
                                 </group>
                         </product>
                         <product code="ZS1">
+                                <group code="PZ">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZS1">
                                 <group code="SQ">
                                         <subchannel>3</subchannel>
                                 </group>
@@ -11351,6 +11682,11 @@
                         </product>
                         <product code="ZW1">
                                 <group code="OW">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZW1">
+                                <group code="WZ">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -11861,11 +12197,6 @@
                                         <subchannel>2</subchannel>
                                 </group>
                         </product>
-                        <product code="YE">
-                                <group code="YE">
-                                        <subchannel>1</subchannel>
-                                </group>
-                        </product>
                         <product code="Z3N">
                                 <group code="ZB">
                                         <subchannel>2</subchannel>
@@ -12075,6 +12406,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="UB1">
+                                <group code="UL">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="UB2">
                                 <group code="UB">
                                         <subchannel>1</subchannel>
@@ -12092,6 +12428,11 @@
                         </product>
                         <product code="UB3">
                                 <group code="UL">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZB1">
+                                <group code="U3">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -12125,6 +12466,11 @@
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
+                        <product code="ZF1">
+                                <group code="9S">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
                         <product code="ZF2">
                                 <group code="0N">
                                         <subchannel>1</subchannel>
@@ -12142,6 +12488,11 @@
                         </product>
                         <product code="ZF3">
                                 <group code="9S">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZN1">
+                                <group code="T$">
                                         <subchannel>1</subchannel>
                                 </group>
                         </product>
@@ -12168,6 +12519,31 @@
                         <product code="ZN3">
                                 <group code="TE">
                                         <subchannel>2</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZQ1">
+                                <group code="C7">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZQ1">
+                                <group code="FO">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZQ6">
+                                <group code="C6">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZQ6">
+                                <group code="FO">
+                                        <subchannel>1</subchannel>
+                                </group>
+                        </product>
+                        <product code="ZT1">
+                                <group code="2$">
+                                        <subchannel>1</subchannel>
                                 </group>
                         </product>
                         <product code="ZT1">
