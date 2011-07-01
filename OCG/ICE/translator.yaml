@@ -3,15 +3,18 @@ symbols:
     id: "20"
     name: "Cocoa"
     group: "ICE Futures US Agricultures"
+    options: "ICE Futures US Agricultures Options"
   SB: 
     id: "24"
     name: "Sugar No 11"
     group: "ICE Futures US Agricultures"
+    options: "ICE Futures US Agricultures Options"
   SE: 25
   SF: 
     id: "41"
     name: "Sugar No 16"
     group: "ICE Futures US Agricultures"
+    options: "ICE Futures US Agricultures Options"
   WBS:
     id: "9"
     name: "ICE WTI Crude Futures"
@@ -37,16 +40,20 @@ symbols:
     id: "23"
     name: "FCOJ A"
     group: "ICE Futures US Agricultures"
+    option: "ICE Futures US Agricultures Options"
   KC: 
     id: "21"
     name: "Coffee C"
     group: "ICE Futures US Agricultures"
+    options: "ICE Futures US Agricultures Options"
   CT: 
     id: "22"
     name: "Cotton No 2"
     group: "ICE Futures US Agricultures"
+    options: "ICE Futures US Agricultures Options"
 
 feeds:
+  
   ICE Futures US Agricultures:
     orderdepth:
       liveip: "233.156.208.0"
@@ -58,12 +65,14 @@ feeds:
       liveport: "20002"
       snapshotip: "233.156.208.3"
       snapshotport: "20003"
+
   ICE Futures US Agricultures Options:
     pricelevel:
       liveip: "233.156.208.42"
       liveport: "20042"
       snapshotip: "233.156.208.43"
       snapshotport: "20043"
+
   ICE Futures WTI:
     orderdepth:
       liveip: "233.156.208.56"
@@ -75,6 +84,7 @@ feeds:
       liveport: "20058"
       snapshotip: "233.156.208.59"
       snapshotport: "20059"
+
   ICE Futures Brent:
     orderdepth:
       liveip: "233.156.208.52"
@@ -86,6 +96,7 @@ feeds:
       liveport: "20054"
       snapshotip: "233.156.208.55"
       snapshotport: "20055"
+
   ICE Futures Europe Options:
     pricelevel:
       liveip: "233.148.208.40"

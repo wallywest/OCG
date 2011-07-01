@@ -9,37 +9,45 @@ class ICE::Generator
     @groups=[]
     @markettypes=[]
     @multicastgroups=[]
-    @ids=[]
+    @ids={}
+    @optiongroups=[]
 		
     formatSymbols
 		writeTemplates
   
 	end
   
-	def formatSymbols
+  def setIds(sym)
+    @ids["#{@gname}"] ||= []
+    @ids["#{@option}"] ||= []
+    @ids["#{@gname}"] << @translator["symbols"]["#{sym}"]["id"]
+    @ids["#{@option}"] << @translator["symbols"]["#{sym}"]["id"]
+  end
+	
+  def formatSymbols
 		ids=@chash["symbols"]
     ids.split(",").each do |sym|
       markettype = @translator["symbols"]["#{sym}"]
-      @ids << @translator["symbols"]["#{sym}"]["id"]
+      raise "invalid symbol" if markettype.nil?
+      
       @markettypes << markettype
       @option=@translator["symbols"]["#{sym}"]["options"]
-      unless @multicastgroups.include?("#{markettype["group"]}")
-        @multicastgroups << markettype["group"]
-        debugger
-        if @option.nil?
-          @multicastgroups << "#{markettype["group"]} Options"
-        else
-          @multicastgroups << "#{@option}" 
-        end
+      @gname=markettype["group"]
+      
+      setIds(sym) 
+      
+      unless @multicastgroups.include?("#{@gname}")
+        @multicastgroups << @gname
+        @multicastgroups << @option unless @multicastgroups.include?(@option)
       end
     end
+    
     @multicastgroups.each do |grp|
-      @groups << {"name" => "#{grp}","network" => @translator["feeds"]["#{grp}"], "ids" => "#{@ids.join(",")}"}
+      @groups << {"name" => "#{grp}","network" => @translator["feeds"]["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
     end
     
     pipe=@groups[1]["ids"].gsub(/,/,"|")
     @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{pipe}"})
-    debugger
 	end
   
 	def writeTemplates
