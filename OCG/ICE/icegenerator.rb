@@ -10,6 +10,7 @@ class ICE::Generator
     @markettypes=[]
     @multicastgroups=[]
     @ids={}
+    @totalids=[]
     @optiongroups=[]
 		
     formatSymbols
@@ -20,6 +21,7 @@ class ICE::Generator
   def setIds(sym)
     @ids["#{@gname}"] ||= []
     @ids["#{@option}"] ||= []
+    @totalids << @translator["symbols"]["#{sym}"]["id"]
     @ids["#{@gname}"] << @translator["symbols"]["#{sym}"]["id"]
     @ids["#{@option}"] << @translator["symbols"]["#{sym}"]["id"]
   end
@@ -46,8 +48,7 @@ class ICE::Generator
       @groups << {"name" => "#{grp}","network" => @translator["feeds"]["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
     end
     
-    pipe=@groups[1]["ids"].gsub(/,/,"|")
-    @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{pipe}"})
+    @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{@totalids.join("|")}"})
 	end
   
 	def writeTemplates
