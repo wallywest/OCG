@@ -34,7 +34,6 @@ class FileWriter
 			data=instance_variable_get("@#{file.gsub(/\..*/,"")}")
       File.open("deploy/#{file}",'a') {|f| f.write(data) }
 		end
-
 	end
 	
   def createExchangeHub defaultexchange

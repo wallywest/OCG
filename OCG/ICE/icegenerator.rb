@@ -52,8 +52,8 @@ class ICE::Generator
 	end
   
 	def writeTemplates
-		@filestowrite.each do |f|
-			@filewriter.writeTemplate "ICE",f,@chash
+		@filestowrite.each do |file|
+			@filewriter.writeTemplate "ICE",file,@chash
 		end	
 	end
   
