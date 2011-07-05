@@ -11,7 +11,7 @@ opts=Slop.parse do
 end
 #need to work out: multiple demux ports
 @config=YAML.load_file("conf/cmeicefixture.yaml")
-@ilink=YAML.load_file("conf/ilinksnoquote.yaml")
+@ilink=YAML.load_file("conf/ilinksprod.yaml")
 # Fresh install
 #OCG::Generator::new(@config,opts.to_hash)
 OCG::Ilinkgenerator.new(@ilink)
