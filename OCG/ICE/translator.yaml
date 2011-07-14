@@ -22,7 +22,11 @@ symbols:
     options: "ICE Futures Europe Options"
   UHO: 13
   DX: 26
-  TF: 28
+  TF: 
+    id: "28"
+    name: "Russell Indices"
+    group: "ICE Futures US Financials"
+    options: "ICE Futures US Financials Options"
   GG: 28
   VV: 28
   RF: 28
@@ -51,6 +55,16 @@ symbols:
     name: "Cotton No 2"
     group: "ICE Futures US Agricultures"
     options: "ICE Futures US Agricultures Options"
+  CER:
+    id: "12"
+    name: "IPE-ECX European Emissions"
+    group: "ICE Futures Europe Non Oil"
+    options: "ICE Futures Europe Options"
+  ECF:
+    id: "38"
+    name: "ICE ECX CER Futures"
+    group: "ICE Futures Europe Non Oil"
+    options: "ICE Futures Europe Options"
 
 feeds:
   
@@ -103,3 +117,36 @@ feeds:
       liveport: "20040"
       snapshotip: "233.148.208.41"
       snapshotport: "20041"
+
+  ICE Futures US Financials:
+    orderdepth:
+      liveip: "233.156.208.4"
+      liveport: "20004"
+      snapshotip: "233.156.208.5"
+      snapshotport: "20005"
+    pricelevel:
+      liveip: "233.156.208.6"
+      liveport: "20006"
+      snapshotip: "233.156.208.7"
+      snapshotport: "20007"
+
+  ICE Futures US Financials Options:
+    pricelevel:
+      liveip: "233.156.208.44"
+      liveport: "20044"
+      snapshotip: "233.156.208.45"
+      snapshotport: "20045"
+  
+  ICE Futures Europe Non Oil:
+    orderdepth:
+      liveip: "233.156.208.12"
+      liveport: "20012"
+      snapshotip: "233.156.208.13"
+      snapshotport: "20013"
+    pricelevel:
+      liveip: "233.156.208.14"
+      liveport: "20014"
+      snapshotip: "233.156.208.15"
+      snapshotport: "20015"
+
+     
