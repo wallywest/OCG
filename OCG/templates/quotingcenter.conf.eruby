@@ -57,7 +57,7 @@ QuotingAlgorithms = RoundToNearestTick ForceToLotSize JoinMarket
 # The order in these algorithms are specified is the order in which they will be applied
 ##################################################
 SafetyAlgorithms = CrossedMarketSafetyAlgorithm
-UnderlyingSafetyAlgorithms = MissingUnderlyingSafetyAlgorithm CrossedUnderlyingSafetyAlgorithm
+UnderlyingSafetyAlgorithms = MissingUnderlyingSafetyAlgorithm 
 
 ##################################################
 # Market Market Protection Triggered Reject Behavior Algorithm

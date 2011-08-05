@@ -32,6 +32,18 @@ FileStorePath=var
 FileLogPath=log
 TargetCompID=ICE
 
+# ORDER ROUTING REQUIRED CONFIGURATIONS
+Originator.ISV=OptionsCity
+Originator.Location=Desk
+Originator.SecondLevelCompID=
+Originator.SecondLevelSubID=<%=traderusername%>
+Originator.ClearingAccount=<%=traderaccount%>
+Originator.ClearingFirm=<%=clearingfirmid%>
+Originator.AccountCode=D
+Originator.CTICode=1
+Originator.CustomerAccountRefId=oc_fix_os
+
+
 [SESSION]
 BeginString=FIX.4.2
 SenderCompID=<%=sendercompid%>
@@ -39,16 +51,10 @@ Password=Opti0nscity
 SenderSubID=<%=sendersubid%>
 Username=<%=username%>
 TraderId=<%=traderid%>
-#SenderLocationID=OptionsCity
-#Account=1234
-#MMAccount=2345
-#CTICode=1
-#CustomerOrFirm=1
+SessionQualifier=
 TimeZone=America/Chicago
-StartTime=18:30:00
+StartTime=18:00:00
 EndTime=17:30:00
-#StartDay=Sunday
-#EndDay=Friday
 FileLogHeartbeats=N
 HeartBtInt=30
 SocketConnectPort=80
@@ -69,21 +75,60 @@ ResetSeqNums=N
 # CmtaGiveupCD SHOULD BE EITHER GU = GIVE-UP OR SX = SGX OFF-SET
 #CmtaGiveupCD=
 
-# ILINK SELECTOR SETTINGS
-# ONLY USE SELECTORS BELOW WHEN MULTIPLE ILINKS ARE AVAILABLE
-# SESSION FOR ADDITIONAL ILINKS MUST ALSO BE DEFINED ABOVE 
+###########################################################################################
+# TraderId Selector Settings
 #
-# MONTH ILINK SELECTOR USED TO PAIR UP ILINK BY MONTH
+# Use this selector when multiple Trader Ids are needed for one FIX session
 #
-#ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.MonthILinkSelector
+# Current Supported Trader Id Selectors:
 #
-# PARENT SYMBOL SELECTOR USED TO PAIR UP ILINK BY PARENT SYMBOL
+# CLASS:com.optionscity.exchanges_ICE.Structures.TraderNameToTraderIdOneToOneSelector
 #
-#ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector
-#ILink.OZB = 5J0
-#ILink.OZF = 4M6
-#ILink.OZN = 4M6
-#ILink.ZB = 5J0
+# Format:  TraderIdSelector = <Selector Class>
+#          TraderIdMapping = <ICE Trader Id>:<OC Trader From Database>, ...
+#
+# Notes:   TraderId above will be used as a default TraderId
+#          If quoting, TraderId above is the quoting TraderId
+#          If quoting, Same OC Trader should be default here and in the quotingcenter.conf
+#
+# Example: TraderIdSelector = CLASS:com.optionscity.exchanges_ICE.Structures.TraderNameToTraderIdOneToOneSelector
+#          TraderIdMapping = oc_fix_trader:support, oc-mq1:USER
+#
+# CLASS:com.optionscity.exchanges_ICE.Structures.MultipleIlinkTraderNameToTraderIdSelector
+#
+# Format:  TraderIdSelector = <Selector Class>
+#          TraderIdMapping = <ICE Trader Id>:<SessionQualifier 1>:<Ilink Identifier 1>:<OC Trader From Database>, 
+#                            <ICE Trader Id>:<SessionQualifier 2>:<Ilink Identifier 2>:>OC Trader From Database>
+#
+# Notes:   There should only be one trader set to Ilink Identifier of QUOTING_ILINK
+#          This should be used when multiple ilinks are specified
+#       
+# Example: TraderIdSelector = CLASS:com.optionscity.exchanges_ICE.Structures.MultipleIlinkTraderNameToTraderIdSelector
+#          TraderIdMapping = oc_fix_trader:oc_fix_os1:ORDERING_ILINK:support, oc-mq1:oc_fix_os:QUOTING_ILINK:USER
+#
+###########################################################################################
+
+###########################################################################################
+# Ilink Selector Settings
+#
+# Only use selectors below when multiple Ilinks are available
+#
+# Current Supported Trader Id Selectors:
+#
+# CLASS:com.optionscity.exchanges_ICE.Structures.OrderOrQuoteILinkSelector
+#
+# Format:   ILinkSelector = <Selector Class>
+#           ILink.QUOTING_ILINK = <Quoting ILink>
+#           ILink.ORDERING_ILINK = <Ordering ILink>
+#
+# Notes:    Must specify QUOTING_ILINK and ORDERING_ILINK only
+#
+# Example:  ILinkSelector = CLASS:com.optionscity.exchanges_ICE.Structures.OrderOrQuoteILinkSelector
+#           ILink.QUOTING_ILINK = oc_fix_os
+#           ILink.ORDERING_ILINK = oc_fix_os1
+#
+###########################################################################################
+
 
 # Strategy creation settings
 #MaxNumInstrumentsCovered=3
@@ -104,14 +149,3 @@ SupportedSecurityIDs=<%=pipeids%>
 # These spreads are sell first leg and buy second leg. 
 # All other spreads are the opposite
 FinancialMarkets=28|29|26|39
-
-# ORDER ROUTING REQUIRED CONFIGURATIONS
-Originator.ISV=OptionsCity
-Originator.Location=Desk
-Originator.SecondLevelCompID=
-Originator.SecondLevelSubID=<%=traderusername%>
-Originator.ClearingAccount=<%=traderaccount%>
-Originator.ClearingFirm=<%=clearingfirmid%>
-Originator.AccountCode=D
-Originator.CTICode=1
-Originator.CustomerAccountRefId=oc_fix_os
