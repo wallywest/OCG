@@ -12,6 +12,7 @@ end
 #need to work out: multiple demux ports
 @config=YAML.load_file("conf/cmeicefixture.yaml")
 @ilink=YAML.load_file("conf/ilinksprod.yaml")
+@live=YAML.load_file("conf/config.yaml")
 # Fresh install
-#OCG::Generator::new(@config,opts.to_hash)
-OCG::Ilinkgenerator.new(@ilink)
+OCG::Generator::new(@live,opts.to_hash)
+#OCG::Ilinkgenerator.new(@ilink)
