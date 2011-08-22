@@ -1,18 +1,27 @@
 $: << File.dirname(__FILE__)
 #GLOBAL INTERFACE TO GENERATE CONFIGS
 require 'OCG/generator.rb'
+require 'OCG/builder.rb'
 require 'OCG/ilinkgenerator.rb'
 require 'OCG/utils/filewriter.rb'
 require 'yaml'
-require 'slop'
+require 'mongo'
+@conn = Mongo::Connection.new
+@db   = @conn["servers"]
+@instances = @db["instances"]
+@servers = @db["servers"]
 
-opts=Slop.parse do
-    on :e, :exchange, "specify exchange config to write"
-end
+#p @servers
+#fuctions: install,disable,addProduct,removeProduct,addIlink,removeIlink,addTradeAccount,removeTradeAccount,  
+@config=OCG::Builder::new(
+  :user => "BenSlater",
+  :function => "install",
+)
 #need to work out: multiple demux ports
-@config=YAML.load_file("conf/cmeicefixture.yaml")
-@ilink=YAML.load_file("conf/ilinksprod.yaml")
-@live=YAML.load_file("conf/config.yaml")
+#@config=YAML.load_file("conf/cmeicefixture.yaml")
+#@ilink=YAML.load_file("conf/ilinksprod.yaml")
+
+#@live=YAML.load_file("conf/config.yaml")
 # Fresh install
-OCG::Generator::new(@live,opts.to_hash)
+#OCG::Writer::new(@live,opts.to_hash)
 #OCG::Ilinkgenerator.new(@ilink)

@@ -7,7 +7,7 @@
 ##################################################
 # QUOTE GOVERNOR SETTINGS
 ##################################################
-QuotesPerInterval = 901
+QuotesPerInterval = 3000 
 Interval = 3000
 QuotesPerMassQuote = 100
 

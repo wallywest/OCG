@@ -67,7 +67,6 @@ symbols:
     options: "ICE Futures Europe Options"
 
 feeds:
-  
   ICE Futures US Agricultures:
     orderdepth:
       liveip: "233.156.208.0"
@@ -148,5 +147,3 @@ feeds:
       liveport: "20014"
       snapshotip: "233.156.208.15"
       snapshotport: "20015"
-
-     

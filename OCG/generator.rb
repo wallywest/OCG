@@ -3,7 +3,7 @@ require 'OCG/CME/cmegenerator'
 require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
 module OCG
-	class OCG::Generator
+	class OCG::Writer
 		def initialize(config,opts)
 			@config=config
 			@globsyms={}
