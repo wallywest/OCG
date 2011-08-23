@@ -4,18 +4,18 @@ require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
 module OCG
 	class OCG::Writer
-		def initialize(config,opts)
-			@config=config
+		def initialize(builder)
+			@builder=builder
 			@globsyms={}
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
-			
-      @config["exchange"].each_pair do |key,val|
-				unless val.has_value?(nil)
-					self.send "#{key}",val 
+		   
+      p @builder 
+      @builder.writer.each_key do |key|
+					self.send "#{key}",@builder 
 					@filewriter.exchanges << key 
-					@globsyms["symbols"] << val["symbols"].split(",") 
-				end
+          debugger
+					#@globsyms["symbols"] << val["symbols"].split(",") 
 			end
 			@users=@config.select {|k| k=="users"}
 			finalGenerator if opts["exchange"].nil?

@@ -13,7 +13,7 @@ require 'mongo'
 
 #p @servers
 #fuctions: install,disable,addProduct,removeProduct,addIlink,removeIlink,addTradeAccount,removeTradeAccount,  
-@config=OCG::Builder::new(
+@builder=OCG::Builder::new(
   :user => "BenSlater",
   :function => "install",
 )
@@ -23,5 +23,5 @@ require 'mongo'
 
 #@live=YAML.load_file("conf/config.yaml")
 # Fresh install
-#OCG::Writer::new(@live,opts.to_hash)
+OCG::Writer::new(@builder)
 #OCG::Ilinkgenerator.new(@ilink)

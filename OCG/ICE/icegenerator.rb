@@ -1,42 +1,53 @@
 module ICE
 class ICE::Generator
 	def initialize chash,filewriter
-    @chash=chash
+    @config=chash.writer["ICE"]
+    @defin=chash.symprop
+    @feeds=chash.feeds
 		@filewriter=filewriter
+    @file={}
+    
     @dir="#{$:.last}/ICE"
     @translator=YAML.load_file("#{@dir}/translator.yaml")
     @filestowrite=["ICE.conf","impactMulticastConfig.xml"]
+    
     @groups=[]
     @markettypes=[]
     @multicastgroups=[]
     @ids={}
     @totalids=[]
     @optiongroups=[]
+    
+    debugger
 		
     formatSymbols
 		writeTemplates
   
 	end
   
-  def setIds(sym)
+  def setIds(markettype)
     @ids["#{@gname}"] ||= []
     @ids["#{@option}"] ||= []
-    @totalids << @translator["symbols"]["#{sym}"]["id"]
-    @ids["#{@gname}"] << @translator["symbols"]["#{sym}"]["id"]
-    @ids["#{@option}"] << @translator["symbols"]["#{sym}"]["id"]
+    
+    @totalids << markettype["id"]
+    
+    @ids["#{@gname}"] << markettype["id"]
+    @ids["#{@option}"] << markettype["id"]
+    debugger
   end
 	
   def formatSymbols
-		ids=@chash["symbols"]
-    ids.split(",").each do |sym|
-      markettype = @translator["symbols"]["#{sym}"]
+    debugger
+		ids=@config["consts"]["sym"]
+    ids.each do |sym|
+      markettype = @defin["#{sym}"]
       raise "invalid symbol" if markettype.nil?
       
       @markettypes << markettype
-      @option=@translator["symbols"]["#{sym}"]["options"]
+      @option=markettype["options"]
       @gname=markettype["group"]
       
-      setIds(sym) 
+      setIds(markettype) 
       
       unless @multicastgroups.include?("#{@gname}")
         @multicastgroups << @gname
@@ -45,15 +56,15 @@ class ICE::Generator
     end
     
     @multicastgroups.each do |grp|
-      @groups << {"name" => "#{grp}","network" => @translator["feeds"]["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
+      @groups << {"name" => "#{grp}","network" => @feeds["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
     end
     
-    @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{@totalids.join("|")}"})
+    @file.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{@totalids.join("|")}"})
 	end
   
 	def writeTemplates
 		@filestowrite.each do |file|
-			@filewriter.writeTemplate "ICE",file,@chash
+			@filewriter.writeTemplate "ICE",file,@file
 		end	
 	end
   
