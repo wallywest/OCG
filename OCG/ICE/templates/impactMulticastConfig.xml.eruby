@@ -24,8 +24,8 @@
   <environment name="PROD">
                 <!-- Optionscity TCP Connection Information -->
                 <tcp ip="63.247.112.185" port="80"
-                        userName="<%= psusername %>"
-                        password="Opti0nscity"/>
+                        userName="<%= psid %>"
+                        password="<%= pspass %>"/>
                 <multicast>
                       <% for g in groups do %>
                         <group name="<%=g["name"]%>">

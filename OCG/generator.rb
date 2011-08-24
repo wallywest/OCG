@@ -17,8 +17,8 @@ module OCG
           debugger
 					#@globsyms["symbols"] << val["symbols"].split(",") 
 			end
-			@users=@config.select {|k| k=="users"}
-			finalGenerator if opts["exchange"].nil?
+			#@users=@config.select {|k| k=="users"}
+			#finalGenerator if opts["exchange"].nil?
 			@filewriter.writeFiles
 		end
     

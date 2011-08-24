@@ -38,7 +38,7 @@ Originator.Location=Desk
 Originator.SecondLevelCompID=
 Originator.SecondLevelSubID=<%=traderusername%>
 Originator.ClearingAccount=<%=traderaccount%>
-Originator.ClearingFirm=<%=clearingfirmid%>
+Originator.ClearingFirm=<%=clearing%>
 Originator.AccountCode=D
 Originator.CTICode=1
 Originator.CustomerAccountRefId=oc_fix_os
@@ -46,12 +46,12 @@ Originator.CustomerAccountRefId=oc_fix_os
 
 [SESSION]
 BeginString=FIX.4.2
-SenderCompID=<%=sendercompid%>
-Password=Opti0nscity
-SenderSubID=<%=sendersubid%>
-Username=<%=username%>
+SenderCompID=<%=compid%>
+Password=<%=tradepass%>
+SenderSubID=<%=subid%>
+Username=<%=osid%>
 TraderId=<%=traderid%>
-SessionQualifier=
+SessionQualifier=<%=osid%>
 TimeZone=America/Chicago
 StartTime=18:00:00
 EndTime=17:30:00

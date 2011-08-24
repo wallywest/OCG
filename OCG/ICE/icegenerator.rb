@@ -3,7 +3,7 @@ class ICE::Generator
 	def initialize chash,filewriter
     @config=chash.writer["ICE"]
     @defin=chash.symprop
-    @feeds=chash.feeds
+    @feeds=chash.feeds["ICE"]["feeds"]
 		@filewriter=filewriter
     @file={}
     
@@ -56,13 +56,18 @@ class ICE::Generator
     end
     
     @multicastgroups.each do |grp|
+      debugger
       @groups << {"name" => "#{grp}","network" => @feeds["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
     end
     
     @file.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{@totalids.join("|")}"})
+    @file.merge!(@config["consts"])
+    # need to fix this, specify device based on the exchange
+    @file.merge!({"interface" => "#{@config['device'].first['int']}", "traderaccount" => "TESTACCOUNT"})
 	end
   
 	def writeTemplates
+    debugger
 		@filestowrite.each do |file|
 			@filewriter.writeTemplate "ICE",file,@file
 		end	
