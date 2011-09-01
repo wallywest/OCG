@@ -1,9 +1,10 @@
 module ICE
 class ICE::Generator
 	def initialize chash,filewriter
+    debugger
     @config=chash.writer["ICE"]
     @defin=chash.symprop
-    @feeds=chash.feeds["ICE"]["feeds"]
+    @feeds=chash.feeds["feeds"]
 		@filewriter=filewriter
     @file={}
     

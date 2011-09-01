@@ -33,6 +33,7 @@ module OCG
     end
     def setSymbolConfig(exchange,syms)
        syms.each do |product|
+          debugger
           #config=@products_col.find_one({},:fields => {"#{exchange}.symbols.#{product}" => 1})
           config=@products_col.find_one({"exchange" => "#{exchange}"},:fields => {"symbols.#{product}" => 1})
           #@symprop.merge!(config["#{exchange}"]["symbols"])
@@ -40,7 +41,7 @@ module OCG
        end 
     end
     def setExchangeFeeds(exchange)
-        @feeds=@products_col.find_one({}, :fields => {"#{exchange}.feeds" => 1})
+        @feeds=@products_col.find_one({"exchange" => "#{exchange}"}, :fields => {"feeds" => 1})
     end
   end
 end
