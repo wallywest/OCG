@@ -18,8 +18,6 @@ class ICE::Generator
     @totalids=[]
     @optiongroups=[]
     
-    debugger
-		
     formatSymbols
 		writeTemplates
   
@@ -33,11 +31,9 @@ class ICE::Generator
     
     @ids["#{@gname}"] << markettype["id"]
     @ids["#{@option}"] << markettype["id"]
-    debugger
   end
 	
   def formatSymbols
-    debugger
 		ids=@config["consts"]["sym"]
     ids.each do |sym|
       markettype = @defin["#{sym}"]
@@ -56,7 +52,6 @@ class ICE::Generator
     end
     
     @multicastgroups.each do |grp|
-      debugger
       @groups << {"name" => "#{grp}","network" => @feeds["#{grp}"], "ids" => "#{@ids["#{grp}"].join(",")}"}
     end
     
@@ -67,7 +62,6 @@ class ICE::Generator
 	end
   
 	def writeTemplates
-    debugger
 		@filestowrite.each do |file|
 			@filewriter.writeTemplate "ICE",file,@file
 		end	

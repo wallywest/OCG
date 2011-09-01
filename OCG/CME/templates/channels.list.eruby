@@ -1,1 +1,1 @@
-<%=ip%> 10000 <%=host%> 1 <%=port%> <%=hostb%> 1 <%=port%> etc/<%=name.gsub(/commodity/,"commodities")%>-id.log
+<%=ipa%> 10000 <%=host%> 1 <%=port%> <%=hostb%> 1 <%=port%> etc/<%=name.gsub(/commodity/,"commodities")%>-id.log

@@ -5,24 +5,41 @@ module CME
 class CME::Generator
 	attr_reader :configs
 	def initialize chash,filewriter
-		@chash=chash
+		@attr,@proper=chash.writer["CME"],chash.symprop
 		@dir="#{$:.last}/CME"
 
 		f=File.open("#{@dir}/config.xml",'r')
 		@translator=YAML.load_file("#{@dir}/translator.yaml")
 		@cme=Nokogiri::XML(f)
-		@symbols=@chash["symbols"].split(",")
-		@interface=@chash["interface"]
-		@cmeip=@chash["ip"]
+    @symbols=@attr["consts"]["sym"]
+  
+    # will have to adjust this for a/b feed
+    
 		@configfiles=%w{idchannels.properties mdchannels.properties}
 		@filewriter=filewriter
 
+    findFeeds
 		findChannelDetails
 		createFiles
 		generateTemplates
 		genCMEDisplay
 	end
-	def getConnectionInfo channel
+  
+  def findFeeds
+      devices=@attr["device"]
+      p devices
+      if devices.size > 1
+          @inta=devices[0]["int"]
+          @intb=devices[1]["int"]
+          @ipa=devices[0]["ip"]
+          @ipb=devices[1]["ip"]
+      else
+         @inta=@intb=devices[0]["int"] 
+         @ipa=@ipb=devices[0]["ip"]
+      end
+  end
+	
+  def getConnectionInfo channel
 		id=@cme.xpath("#{channel}").first.attributes["id"].value
 		@configs["#{channel}"]["id"]="#{id}"
 		@configs["#{channel}"]["connAtts"] = {} 
@@ -35,16 +52,19 @@ class CME::Generator
 		end
 
 	end
+
 	def addChanName(label)
 		@allnames << "#{@translator[label]['name']} "
 	end
+
 	def addConfigs(channel,code,label)
-		 addChanName(label) if @configs["#{channel.path}"].nil?
-                 @configs["#{channel.path}"] ||= {}
-                 @configs["#{channel.path}"].merge!(@translator[label])
-                 configs["#{channel.path}"]["symbols"] ||= []
-                 @configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
+		addChanName(label) if @configs["#{channel.path}"].nil?
+     @configs["#{channel.path}"] ||= {}
+     @configs["#{channel.path}"].merge!(@translator[label])
+     configs["#{channel.path}"]["symbols"] ||= []
+     @configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
 	end
+
 	def findChannelDetails
 		@configs={}
 		@skipid=["Inter Exchange Spreads"]
@@ -59,15 +79,17 @@ class CME::Generator
 		end
 		@configs.keys.each {|x| getConnectionInfo x }
 	end
+
 	def createFiles
 		@allnames.rstrip!.gsub!(/ /,", ")
 		@configfiles.each do |f|
 			File.open("deploy/"+f,'w')  {|file| file.write("active-channels = #{@allnames}" + "\n")}	
 		end
 		File.open('deploy/mdchannels.properties','a') do |f| 
-                       File.open("#{@dir}/templates/premdchannels.config",'r') {|x| x.each_line {|line| f.write(line)}}
+      File.open("#{@dir}/templates/premdchannels.config",'r') {|x| x.each_line {|line| f.write(line)}}
 		end
 	end
+
 	def generateTemplates
 		@vars={}
 		@idchan=[]
@@ -79,7 +101,10 @@ class CME::Generator
 			@vars["name"]=value["name"]
 			@id=value["id"]
 			@vars["id"]=value["id"]
-			@vars["interface"]=@interface
+			@vars["interfacea"]=@inta
+      @vars["interfaceb"]=@intb
+      @vars["ipa"]=@ipa
+      @vars["ipb"]=@ipb
 			@vars["book"]=value["bookdepth"]
 			@vars["ibook"]=value["implied"]
 			@vars["symbols"]=value["symbols"].join(", ")
@@ -97,21 +122,20 @@ class CME::Generator
 				write "#{file}", @vars
 			end
 		end
-		write "demux.conf",{:ip => @cmeip}
+		write "demux.conf",@vars
 
 	end
+
 	def write file,values 
 		@vars["name"].gsub(/commodity/,"commodities") if @vars["name"].include?("commodity")
 		@filewriter.writeTemplate "CME",file,values
 	end
+
 	def genCMEDisplay
                 @write=''
-                @display=File.open("#{@dir}/templates/globalcmedisplay.txt",'r')
                 @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
-                @display.each_line do |line|
-                        @symbols.each do |sym|
-                                if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
-                        end
+                @proper.each_value do |sym|
+                    sym.each_pair { |k,v| @write << "#{k}=#{v}\n" }
                 end
                 @finaldisplay.write(@write)
         end

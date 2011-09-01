@@ -10,12 +10,9 @@ module OCG
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
 		   
-      p @builder 
       @builder.writer.each_key do |key|
 					self.send "#{key}",@builder 
 					@filewriter.exchanges << key 
-          debugger
-					#@globsyms["symbols"] << val["symbols"].split(",") 
 			end
 			#@users=@config.select {|k| k=="users"}
 			#finalGenerator if opts["exchange"].nil?

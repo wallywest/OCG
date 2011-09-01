@@ -14,8 +14,10 @@ require 'mongo'
 #p @servers
 #fuctions: install,disable,addProduct,removeProduct,addIlink,removeIlink,addTradeAccount,removeTradeAccount,  
 @builder=OCG::Builder::new(
-  :user => "BenSlater",
-  :function => "install",
+  #:user => "BenSlater",
+  #:function => "install",
+  :user => "PrimeConrad",
+  :function => "install"
 )
 #need to work out: multiple demux ports
 #@config=YAML.load_file("conf/cmeicefixture.yaml")
