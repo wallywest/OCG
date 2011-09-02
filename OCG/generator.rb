@@ -14,8 +14,6 @@ module OCG
 					self.send "#{key}",@builder 
 					@filewriter.exchanges << key 
 			end
-			#@users=@config.select {|k| k=="users"}
-			#finalGenerator if opts["exchange"].nil?
 			@filewriter.writeFiles
 		end
     
