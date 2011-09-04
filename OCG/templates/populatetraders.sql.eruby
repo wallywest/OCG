@@ -2,7 +2,7 @@ INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreatio
 INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `accountType`,`role`) VALUES (2, 'OCAPI', 'ocapi', NOW(), 2, 1);
 <% scount=3 %>
 <% sdefault=1 %>
-<% for key,value in traders do %>
+<% for u in users do %>
 INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `isDefault`, `role`, `location`) VALUES (<%= scount %>, '<%= u[0] %>', '<%= u[1] %>', NOW(), <%= sdefault %>, 1, 'US,IL');
 <% scount+=1 %>
 <% sdefault=0 %>

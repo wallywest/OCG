@@ -13,8 +13,8 @@ module OCG
 
         @instance=@instances_col.find_one("name" => "#{input[:user]}") 
         @serverid=@instance["server_id"]
-        @accounts=@instance["accounts"]
-        @traders=@instance["traders"]
+        @accounts={"accounts" => "#{@instance["accounts"]}"}
+        @traders={"users" => "#{@instance["traders"]}"}
         @customer="#{input[:user]}"
 
         buildExchanges
