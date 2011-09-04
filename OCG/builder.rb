@@ -1,6 +1,6 @@
 module OCG
   class Builder
-    attr_reader :writer,:symprop, :feeds
+    attr_reader :writer,:symprop,:feeds,:traders,:accounts,:customer,:totsym
 
     def initialize(input)
 
@@ -13,12 +13,17 @@ module OCG
 
         @instance=@instances_col.find_one("name" => "#{input[:user]}") 
         @serverid=@instance["server_id"]
-        @writer={}
-        @symprop={}
+        @accounts=@instance["accounts"]
+        @traders=@instance["traders"]
+        @customer="#{input[:user]}"
+
         buildExchanges
         
     end
     def buildExchanges
+        @writer={}
+        @symprop={}
+        @totsym=[]
         @instance["exchanges"].each_pair do |exchange,values|
             @writer["#{exchange}"] ||= {}
             setSymbolConfig(exchange,values["sym"])
@@ -34,6 +39,7 @@ module OCG
     def setSymbolConfig(exchange,syms)
        syms.each do |product|
           debugger
+          @totsym << product
           #config=@products_col.find_one({},:fields => {"#{exchange}.symbols.#{product}" => 1})
           config=@products_col.find_one({"exchange" => "#{exchange}"},:fields => {"symbols.#{product}" => 1})
           #@symprop.merge!(config["#{exchange}"]["symbols"])

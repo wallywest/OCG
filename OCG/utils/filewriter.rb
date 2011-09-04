@@ -6,13 +6,12 @@ class FileWriter
 		@exchanges=[]
 	end
 	
-  def setpath type
+  def setpath type="default"
 		if type=="default" then @path="#{$:.last}/templates" else @path="#{$:.last}/#{type}/templates" end
 	end
 	
   def readFile tfile,&block
 		f=File.read("#{@path}/#{tfile}.eruby")
-		#yield Erubis::Eruby.new(f)
     yield Erubis::EscapedEruby.new(f)
 	end
 	

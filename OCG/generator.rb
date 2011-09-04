@@ -9,20 +9,22 @@ module OCG
 			@globsyms={}
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
-		   
+		  @traders=@builder.traders 
       @builder.writer.each_key do |key|
 					self.send "#{key}",@builder 
 					@filewriter.exchanges << key 
 			end
+      debugger
+      finalGenerator
 			@filewriter.writeFiles
 		end
     
 		def finalGenerator
-			@filewriter.writeTemplate("default","populatetraders.sql",@users)
-			@filewriter.writeTemplate("default","populateportfolio.sql",@globsyms)
-			@filewriter.writeTemplate("default","quotingcenter.conf",@users)
-      @filewriter.writeTemplate("default","customer.conf",{"customer" => @config["customer"]})
-			@filewriter.createExchangeHub @config["default"]
+			@filewriter.writeTemplate("default","populatetraders.sql",@traders)
+			@filewriter.writeTemplate("default","populateportfolio.sql",@builder.totsym)
+			@filewriter.writeTemplate("default","quotingcenter.conf",@traders)
+      @filewriter.writeTemplate("default","customer.conf",{"customer" => @builder.customer })
+			#@filewriter.createExchangeHub @config["default"]
 		end
   
 		def CME value
