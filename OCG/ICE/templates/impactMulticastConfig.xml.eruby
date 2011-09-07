@@ -20,6 +20,12 @@
   <!--  Example: O,F,U for supporting all security types  -->
     <type name="F,O,U"/>
   </supportedSecurityTypes>
+  
+  <supportedSymbols>
+        <!--    Comma delimited    -->
+        <!--    Example: BRN,SB,KC -->
+                <symbols set="<%= sym.join(',') %>"/>
+  </supportedSymbols>
 
   <environment name="PROD">
                 <!-- Optionscity TCP Connection Information -->

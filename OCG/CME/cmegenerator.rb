@@ -5,13 +5,16 @@ module CME
 class CME::Generator
 	attr_reader :configs
 	def initialize chash,filewriter
+    debugger
 		@attr,@proper=chash.writer["CME"],chash.symprop
+    @ilink=@attr["consts"]["ilinks"]
 		@dir="#{$:.last}/CME"
 
 		f=File.open("#{@dir}/config.xml",'r')
 		@translator=YAML.load_file("#{@dir}/translator.yaml")
 		@cme=Nokogiri::XML(f)
     @symbols=@attr["consts"]["sym"]
+    
   
     # will have to adjust this for a/b feed
     
@@ -23,6 +26,10 @@ class CME::Generator
 		createFiles
 		generateTemplates
 		genCMEDisplay
+    
+    debugger
+    CME::Ilinkgenerator.new(@attr["consts"],filewriter) if @ilink
+    
 	end
   
   def findFeeds

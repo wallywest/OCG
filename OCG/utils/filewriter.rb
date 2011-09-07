@@ -7,7 +7,11 @@ class FileWriter
 	end
 	
   def setpath type="default"
-		if type=="default" then @path="#{$:.last}/templates" else @path="#{$:.last}/#{type}/templates" end
+		if type=="default"
+        @path="#{$:.last}/templates" 
+    else 
+        @path="#{$:.last}/#{type}/templates" 
+    end
 	end
 	
   def readFile tfile,&block
@@ -20,7 +24,8 @@ class FileWriter
 		@filenames << tfile
 		var=tfile.gsub(/\..*/,"")
 		
-    readFile(tfile) {|out| @cs=out.result(hinput)}	
+    readFile(tfile) {|eruby| @cs=eruby.result(hinput)}	
+    debugger
 		if self.instance_variable_defined?("@#{var}")
 			eval "@#{var} << @cs"
 		else

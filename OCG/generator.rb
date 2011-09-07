@@ -1,7 +1,9 @@
 $: << File.dirname(__FILE__)
 require 'OCG/CME/cmegenerator'
+require 'OCG/CME/ilinkgenerator'
 require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
+
 module OCG
 	class OCG::Writer
 		def initialize(builder)

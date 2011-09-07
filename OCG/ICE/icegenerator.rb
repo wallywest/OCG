@@ -63,6 +63,7 @@ class ICE::Generator
 	end
   
 	def writeTemplates
+    debugger
 		@filestowrite.each do |file|
 			@filewriter.writeTemplate "ICE",file,@file
 		end	

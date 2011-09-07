@@ -15,7 +15,6 @@ module OCG
         @serverid=@instance["server_id"]
         @accounts={"accounts" => @instance["accounts"]}
         @traders={"users" => @instance["traders"]}
-        debugger
         @customer="#{input[:user]}"
 
         buildExchanges
@@ -36,11 +35,11 @@ module OCG
     end
     def interface(exchange)
         server=@servers_col.find_one("_id" => @serverid)
+        debugger
         server["connections"]["#{exchange}"] 
     end
     def setSymbolConfig(exchange,syms)
        syms.each do |product|
-          debugger
           @totsym["symbols"] << product
           #config=@products_col.find_one({},:fields => {"#{exchange}.symbols.#{product}" => 1})
           config=@products_col.find_one({"exchange" => "#{exchange}"},:fields => {"symbols.#{product}" => 1})
