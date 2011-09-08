@@ -36,14 +36,12 @@ ValidateUserDefinedFields=N
 ValidateFieldsOutOfOrder=N
 ValidateFieldsHaveValue=N
 
-<% p ilinks %>
 <% for s in ilinks do %>
-<% p s %>
 [SESSION]
 BeginString=FIX.4.2
-SenderCompID=<%=s['sendercompid']%>
+SenderCompID=<%=s['compid']%>
 Password=<%=s['password']%>
-SenderSubID=<%=s['sendersubid']%>
+SenderSubID=<%=s['subid']%>
 SenderLocationID=<%=s['location']%>
 Account=<%=s['account']%>
 MMAccount=<%=s['account']%>
@@ -56,7 +54,7 @@ EndDay=Friday
 FileLogHeartbeats=N
 HeartBtInt=30
 SocketConnectPort=<%=s['port']%>
-SocketConnectHost=<%=s['ip']%>
+SocketConnectHost=<%=s['host']%>
 UseDataDictionary=Y
 DataDictionary=conf/data_dictionary/CME_FIX42.xml
 LogoutTimeout=2
@@ -67,17 +65,12 @@ SendRedundantResendRequests=N
 # SET THIS ONCE BEFORE STARTING SERVER IF NEEDED TO RESET SEQUENCE NUMBERS
 ResetSeqNums=N
 
-
 <% end %>
 
-<% if isquoting %>
-ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector
-<% for ilink in ilinks do %>
-<% for sym in ilink["quoting"] do %>
-ILink.<%=sym%>=<%=ilink["compid"].scan(/\w{3}/)[0]%>:true
+<% if isquoting then %>
+<% p 'hello' %>
+ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector  
 <% end %>
-<% end %>
-<% end %> 
 
 # Strategy creation settings
 MaxNumInstrumentsCovered=3

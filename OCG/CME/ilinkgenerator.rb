@@ -3,7 +3,6 @@ module CME
 		def initialize(config,filewriter)
 			@config=config
       p @config
-      debugger 
       filewriter.writeTemplate("CME","CME.conf",config)
 		end
 	end

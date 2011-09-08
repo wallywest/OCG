@@ -5,7 +5,6 @@ module CME
 class CME::Generator
 	attr_reader :configs
 	def initialize chash,filewriter
-    debugger
 		@attr,@proper=chash.writer["CME"],chash.symprop
     @ilink=@attr["consts"]["ilinks"]
 		@dir="#{$:.last}/CME"
@@ -27,14 +26,12 @@ class CME::Generator
 		generateTemplates
 		genCMEDisplay
     
-    debugger
     CME::Ilinkgenerator.new(@attr["consts"],filewriter) if @ilink
     
 	end
   
   def findFeeds
       devices=@attr["device"]
-      p devices
       if devices.size > 1
           @inta=devices[0]["int"]
           @intb=devices[1]["int"]

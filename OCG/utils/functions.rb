@@ -1,6 +1,7 @@
 require 'mongo'
 module OCG
 class Functions
+  #functions for databse updates
   def initialize
     @conn= Mongo::Connection.new
     @db=@conn["servers"]
@@ -43,6 +44,7 @@ class Functions
   end
 
   def changeUser
+    #optionscityuser
   end
 
   def setServerId

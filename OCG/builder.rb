@@ -2,7 +2,7 @@ module OCG
   class Builder
     attr_reader :writer,:symprop,:feeds,:traders,:accounts,:customer,:totsym, :defaultexchange
 
-    def initialize(input)
+    def initialize(options)
 
         @conn = Mongo::Connection.new
         @db = @conn["servers"]
@@ -11,11 +11,11 @@ module OCG
         @servers_col = @db["servers"]
         @products_col = @db["products"]
 
-        @instance=@instances_col.find_one("name" => "#{input[:user]}") 
+        @instance=@instances_col.find_one("name" => "#{options[:user]}") 
         @serverid=@instance["server_id"]
         @accounts={"accounts" => @instance["accounts"]}
         @traders={"users" => @instance["traders"]}
-        @customer="#{input[:user]}"
+        @customer="#{options[:user]}"
 
         buildExchanges
         
@@ -35,7 +35,6 @@ module OCG
     end
     def interface(exchange)
         server=@servers_col.find_one("_id" => @serverid)
-        debugger
         server["connections"]["#{exchange}"] 
     end
     def setSymbolConfig(exchange,syms)
