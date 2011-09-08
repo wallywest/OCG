@@ -1,0 +1,149 @@
+##################################################
+#
+# CME SETTINGS
+#
+##################################################
+
+##################################################
+# QUOTE GOVERNOR SETTINGS
+##################################################
+QuotesPerInterval = 3000 
+Interval = 3000
+QuotesPerMassQuote = 100
+
+##################################################
+# ADDITIONAL SETTINGS
+# Should Include Futures Strategies
+##################################################
+ShouldIncludeFutureStrategies = true
+
+##################################################
+#
+# QUICKFIX SETTINGS
+#
+##################################################
+# default settings for sessions
+[DEFAULT]
+ConnectionType=initiator
+ReconnectInterval=60
+FileStorePath=var
+#FileLogPath=log
+FileLogPath=var
+TargetCompID=CME
+TargetSubID=G
+CheckCompID=N
+ValidateUserDefinedFields=N
+ValidateFieldsOutOfOrder=N
+ValidateFieldsHaveValue=N
+
+<% p ilinks %>
+<% for s in ilinks do %>
+<% p s %>
+[SESSION]
+BeginString=FIX.4.2
+SenderCompID=<%=s['sendercompid']%>
+Password=<%=s['password']%>
+SenderSubID=<%=s['sendersubid']%>
+SenderLocationID=<%=s['location']%>
+Account=<%=s['account']%>
+MMAccount=<%=s['account']%>
+CTICode=1
+CustomerOrFirm=1
+StartTime=16:00:00
+EndTime=23:00:00
+StartDay=Sunday
+EndDay=Friday
+FileLogHeartbeats=N
+HeartBtInt=30
+SocketConnectPort=<%=s['port']%>
+SocketConnectHost=<%=s['ip']%>
+UseDataDictionary=Y
+DataDictionary=conf/data_dictionary/CME_FIX42.xml
+LogoutTimeout=2
+LogonTimeout=30
+ResetOnLogon=N
+MillisecondsInTimeStamp=Y
+SendRedundantResendRequests=N
+# SET THIS ONCE BEFORE STARTING SERVER IF NEEDED TO RESET SEQUENCE NUMBERS
+ResetSeqNums=N
+
+
+<% end %>
+
+<% if isquoting %>
+ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector
+<% for ilink in ilinks do %>
+<% for sym in ilink["quoting"] do %>
+ILink.<%=sym%>=<%=ilink["compid"].scan(/\w{3}/)[0]%>:true
+<% end %>
+<% end %>
+<% end %> 
+
+# Strategy creation settings
+MaxNumInstrumentsCovered=3
+MaxNumFuturesCovered=2
+MaxNumInstrumentsCombo=40
+
+# MarketDataFeed Selection
+# Current valid values for MarketDataFeed: OLD, NEW, and OLD_20
+# OLD - Old demux running FIX/FAST 1.X
+# NEW - New C++ demux
+# OLD_20 - Old demux running FIX/FAST 2.0
+MarketDataFeed=OLD_20
+#MarketDataFeed=NEW
+
+# MarketDataFeedIsFullDecode
+# This is only for FIX/FAST 2.0. This has no affect on prior FIX/FAST versions before 2.0. 
+# Valid values for MarketDataFeedIsFullDecode: true or false
+# true - Do full partial decode of messages (Used for internal scripts to create instrument definition files)
+# false - This is Default. Do NOT do full partial decode of messages (Minimize processing of FIX/FAST 2.0 messages)
+MarketDataFeedIsFullDecode = false
+
+##################################################
+#
+# CME Clearing SETTINGS
+#
+##################################################
+# NYMEX floor trade (pit) transactions
+Clearing360=false
+
+C360Host=128.177.22.37
+C360Port=1414
+
+C360Channel = SVR.OPTCITY
+C360QueueManager = MQ200
+# TRADINCPC = message to CME from OC
+C360InboundQueue = CDCS.OPTCITY.TRADINA.FIXML
+# TRADEOUTCPC = message to OC from CME
+C360OutboundQueue = CDCS.OPTCITY.TRADOUTA.FIXML
+
+C360InputSource=OPTC
+C360Firm=685
+
+###################################################
+# ex-pit transactions
+ClearPort=false
+
+#The first section is required for using the websphereMQ for trade entry
+ClearPortTradeEntryEnable=true
+ClearPortHost=128.177.22.37
+ClearPortPort=1414
+
+ClearPortChannel = SVR.OPTCITY
+ClearPortQueueManager = MQ200
+# TRADINCPC = message to CME from OC
+ClearPortInboundQueue = CDCS.OPTCITY.TRADINCPC.FIXML
+# TRADEOUTCPC = message to OC from CME
+ClearPortOutboundQueue = CDCS.OPTCITY.TRADOUTCPC.FIXML
+
+ClearPortFirm=555
+ClearPortAccount=555TEST
+ClearPortBroker=sgrady
+
+#The second section is used for downloading products via HTTP
+ClearPortDownloaderEnable=false
+ClearPortInputSource=OCSI
+ClearPortUsername=octestcpapi
+ClearPortPassword=octestcpapi
+ClearPortURL= https://servicesnr.cmegroup.com/cpc/ApiHandler.api
+ClearPortOTCSymbols = SO.COMEX.OPT, SI.COMEX.FUT, CA.NYMEX.MLEG
