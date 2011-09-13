@@ -6,7 +6,7 @@ require 'OCG/utils/filewriter'
 
 module OCG
 	class OCG::Writer
-		def initialize(builder)
+		def initialize(builder,function)
 			@builder=builder
 			@globsyms={}
 			@globsyms['symbols']=[]
@@ -15,15 +15,12 @@ module OCG
 					self.send "#{key}",@builder 
 					@filewriter.exchanges << key 
 			end
-      debugger
-      finalGenerator
+      finalGenerator if function=="install"
 			@filewriter.writeFiles
 		end
     
 		def finalGenerator
-      debugger
 			@filewriter.writeTemplate("default","populatetraders.sql",@builder.traders)
-      debugger
 			@filewriter.writeTemplate("default","populateportfolio.sql",@builder.totsym)
 			@filewriter.writeTemplate("default","quotingcenter.conf",@builder.traders)
       @filewriter.writeTemplate("default","customer.conf",{"customer" => @builder.customer })

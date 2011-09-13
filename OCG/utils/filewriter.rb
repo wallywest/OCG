@@ -24,7 +24,7 @@ class FileWriter
 		@filenames << tfile
 		var=tfile.gsub(/\..*/,"")
 		
-    readFile(tfile) {|eruby| debugger;@cs=eruby.result(hinput)}	
+    readFile(tfile) {|eruby| @cs=eruby.result(hinput)}	
 		if self.instance_variable_defined?("@#{var}")
 			eval "@#{var} << @cs"
 		else

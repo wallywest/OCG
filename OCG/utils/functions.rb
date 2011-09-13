@@ -1,13 +1,8 @@
-require 'mongo'
 module OCG
 class Functions
   #functions for databse updates
-  def initialize
-    @conn= Mongo::Connection.new
-    @db=@conn["servers"]
-    @instances=@db["instances"]
-    addIlink("RockOC_JConnors",ilink)
-    #ilink={ "compid" => "6QK3P7N", "password" => "imusk", "subid" => "JCONNORS", "port" => "9036", "host" => "205.209.216.129"}
+  def initialize(collection)
+    @col=collection
   end
 
   def addAccount(instance,password)
@@ -31,10 +26,10 @@ class Functions
   def removeIlink
   end
 
-  def addSymbol
+  def addSymbol(instance,exchange,symbol)
   end
 
-  def removeSymbol
+  def removeSymbol(instance,exchange,symbol)
   end
 
   def addExchange
@@ -47,7 +42,8 @@ class Functions
     #optionscityuser
   end
 
-  def setServerId
+  def setServerId(instance,server_id)
+    
   end
 
 end

@@ -42,7 +42,7 @@ BeginString=FIX.4.2
 SenderCompID=<%=s['compid']%>
 Password=<%=s['password']%>
 SenderSubID=<%=s['subid']%>
-SenderLocationID=<%=s['location']%>
+SenderLocationID=US,IL
 Account=<%=s['account']%>
 MMAccount=<%=s['account']%>
 CTICode=1
@@ -67,9 +67,21 @@ ResetSeqNums=N
 
 <% end %>
 
-<% if isquoting then %>
-<% p 'hello' %>
-ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector  
+<% if isquoting %>
+<%='ILinkSelector = CLASS:com.optionscity.globexilinkjava.Structures.ParentSymbolSpecificILinkSelector'%>
+#QUOTING
+<% for i in ilinks do %>
+<% unless i["quoting"].nil?%>
+<% for sym in i["quoting"] do %>
+ILink.<%=sym%>=<%=i["compid"].scan(/\w{3}/)[0]%>:true
+<% end %>
+<% end %>
+<% end %>
+#NOTQUOTING
+<% for s in nonquoting["syms"] do %>
+ILink.<%=s%>=<%=nonquoting["ilink"].scan(/\w{3}/)[0]%>:false
+<% end %>
+<% else %>
 <% end %>
 
 # Strategy creation settings
