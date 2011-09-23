@@ -11,15 +11,16 @@ require 'mongo'
 #later
 #database changes addTradeAccount,removeTradeAccount, addTrader,removeTrader
 
-@task=ARGV[0]
+@instance=ARGV[0]
+@task=ARGV[1]
 
 @builder=OCG::Builder::new(
  # :user => "BenSlater",
  # :function => "install",
  # :user => "PRIME_ARI",
  # :function => "install"
-  :instance => "Vermillion",
- # :tasks => "#{params}"
+  :instance => "#{@instance}",
+  :function => "#{@task}"
 )
 
 #@live=YAML.load_file("conf/config.yaml")

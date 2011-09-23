@@ -1,7 +1,6 @@
 module ICE
 class ICE::Generator
 	def initialize chash,filewriter
-    debugger
     @config=chash.writer["ICE"]
     @defin=chash.symprop
     @feeds=chash.feeds["feeds"]
@@ -63,7 +62,6 @@ class ICE::Generator
 	end
   
 	def writeTemplates
-    debugger
 		@filestowrite.each do |file|
 			@filewriter.writeTemplate "ICE",file,@file
 		end	
