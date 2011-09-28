@@ -5,7 +5,7 @@ require 'OCG/utils/filewriter.rb'
 require 'yaml'
 
 #need to work out: multiple demux ports, cme ip connection
-@config=YAML.load_file("config.yaml")
+@config=YAML.load_file("conf/config.yaml")
 # Fresh install
 OCG::Generator::new(@config)
 # Updates

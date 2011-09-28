@@ -12,8 +12,6 @@ class CME::Generator
 
 		f=File.open("#{@dir}/config.xml",'r')
 		@translator=YAML.load_file("#{@dir}/translator.yaml")
-		p @translator
-		debugger
 		@cme=Nokogiri::XML(f)
 		@symbols=@chash["symbols"].split(",")
 		@cmeip=@chash["ip"]
@@ -80,7 +78,6 @@ class CME::Generator
 		@vars["book"]="2"
 		@vars["ibook"]="1"
 		# =====================
-		debugger
 		@configs.each_value do |value|
 			@vars["name"]=value["name"]
 			@id=value["id"]
