@@ -1,0 +1,17 @@
+{
+"task":"addICEids",
+"instance":"TommyChong",
+"ice":
+  {
+    "clearing":"",
+    "compid":"",
+    "isdefault":"",
+    "osid":"",
+    "psid":"",
+    "pspass":"",
+    "subid":"",
+    "tradepass":"",
+    "traderusername":"",
+    "traderid":""
+  }
+}

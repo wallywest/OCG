@@ -1,0 +1,33 @@
+quoting:
+  session: 7WY 
+  mapping: 
+  - 
+    sym: SO
+    quote: false
+  - 
+    sym: SI
+    quote: false
+  - 
+    sym: GC
+    quote: false
+  - 
+    sym: OG
+    quote: true
+
+ilinks:
+  - 
+     sendercompid: 5XK5R2N 
+     password: nadju
+     sendersubid: ARI
+     location: US,IL
+     account: 63148051
+     port: 9682
+     ip: 205.209.218.43
+  -
+     sendercompid: 7WY5R2N
+     password: ersec
+     sendersubid: ARI
+     location: US,IL
+     account: 63148051
+     port: 9539
+     ip: 205.209.216.80

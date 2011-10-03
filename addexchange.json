@@ -1,0 +1,5 @@
+{
+  "task":"addExchange",
+  "instance":"TommyChong", 
+  "exchanges": "CME"
+}

@@ -1,0 +1,6 @@
+<% puts isquoting %>
+<% unless isquoting %>
+  <% puts false %>
+<% else %>
+  <% puts true %>
+<% end %>

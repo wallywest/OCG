@@ -1,0 +1,35 @@
+customer: NEWCUSTOMER
+default: ICE
+users:
+  JOHN: doe
+tradeaccount:
+
+exchange:
+ CME:
+  symbols: ZC,OZC,XM,SZC,ZC1,ZC2,ZC3,ZC3 
+  ip: 172.22.116.35 
+  interface: eth1
+
+ ICE:
+  interface: eth1 
+  symbols: BRN,WBS,SB,CT,KC,CC
+  sendercompid: 9999
+  sendersubid: 99
+  username: traderos
+  traderid: traderfx
+  traderaccount: 99999
+  clearingfirmid: 999
+  psusername: traderps
+  psuserpassword: Opti0nscity
+  traderusername: USER
+
+ CBOE:
+  cas:
+  interface:
+  user:
+  password:
+  orderbranch:
+  giveupfirm:
+  orderaccount:
+  ordersubaccount:
+  supportedroductclasses:

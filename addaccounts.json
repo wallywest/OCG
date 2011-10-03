@@ -1,0 +1,10 @@
+{
+  "task":"addAccount",
+  "instance":"PRIME_Sands",
+  "account":
+  {
+    "account":"63148416",
+    "type":"ELECTRONIC",
+    "isdefault":"1"
+  }
+}  

@@ -1,16 +1,18 @@
+require 'db.rb'
 module OCG
   class Builder
     attr_reader :writer,:symprop,:feeds,:traders,:accounts,:customer,:totsym,:defaultexchange
+    include OCG::DB
 
     def initialize(options)
+        @params=options
+        setupdb
 
-        @conn = Mongo::Connection.new
-        @db = @conn["servers"]
-
-        @instances_col = @db["instances"]
-        @servers_col = @db["servers"]
-        @products_col = @db["products"]
-
+        runTask
+        mainFunction if @params[:write]=="true"
+    end
+    def mainFunction
+        puts "runnign main function"
         @instance=@instances_col.find_one("name" => "#{options[:instance]}") 
         @serverid=@instance["server_id"]
         @accounts={"accounts" => @instance["accounts"]}
@@ -48,6 +50,11 @@ module OCG
     end
     def setExchangeFeeds(exchange)
         @feeds=@products_col.find_one({"exchange" => "#{exchange}"}, :fields => {"feeds" => 1})
+    end
+  
+    def runTask
+        puts "run task"
+        OCG::Functions::runQuery(@params)
     end
   end
 end
