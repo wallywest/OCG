@@ -10,8 +10,8 @@ opts=Slop.parse do
     on :e, :exchange, "specify exchange config to write"
 end
 #need to work out: multiple demux ports
-@config=YAML.load_file("conf/cmeicefixture.yaml")
-@ilink=YAML.load_file("conf/ilinksprod.yaml")
+#@config=YAML.load_file("conf/cmeicefixture.yaml")
+#@ilink=YAML.load_file("conf/ilinksprod.yaml")
 @live=YAML.load_file("conf/config.yaml")
 # Fresh install
 OCG::Generator::new(@live,opts.to_hash)
