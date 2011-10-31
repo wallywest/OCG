@@ -1,17 +1,18 @@
 {
 "task":"addICEids",
-"instance":"TommyChong",
+"instance":"NF10_StuartStallo",
 "ice":
   {
-    "clearing":"",
-    "compid":"",
-    "isdefault":"",
-    "osid":"",
-    "psid":"",
-    "pspass":"",
-    "subid":"",
-    "tradepass":"",
-    "traderusername":"",
-    "traderid":""
+    "clearing":"3382",
+    "compid":"3410",
+    "isdefault":"true",
+    "osid":"mfgoptos4",
+    "psid":"stallops",
+    "pspass":"Opti0nscity",
+    "subid":"12",
+    "tradepass":"Mfg2011!",
+    "traderusername":"STUART",
+    "traderid":"mfgopt-fx1",
+    "sym": ["CT"]
   }
 }

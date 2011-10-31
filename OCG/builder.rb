@@ -5,19 +5,20 @@ module OCG
     include OCG::DB
 
     def initialize(options)
+        ## need to add which instance we will right for
         @params=options
         setupdb
 
-        runTask
+        runTask unless @params[:json].nil?
         mainFunction if @params[:write]=="true"
     end
     def mainFunction
         puts "runnign main function"
-        @instance=@instances_col.find_one("name" => "#{options[:instance]}") 
+        @instance=@instances_col.find_one("name" => "#{@params[:instance]}") 
         @serverid=@instance["server_id"]
         @accounts={"accounts" => @instance["accounts"]}
         @traders={"users" => @instance["traders"]}
-        @customer="#{options[:user]}"
+        @customer="#{@instance[:name]}"
 
         buildExchanges
         
@@ -53,7 +54,6 @@ module OCG
     end
   
     def runTask
-        puts "run task"
         OCG::Functions::runQuery(@params)
     end
   end

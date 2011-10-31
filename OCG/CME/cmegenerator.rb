@@ -19,6 +19,10 @@ class CME::Generator
     
 		@configfiles=%w{idchannels.properties mdchannels.properties}
 		@filewriter=filewriter
+    @instance=filewriter.instance
+    @deploy="deploy/#{@instance}"
+    
+    p @deploy
 
     findFeeds
 		findChannelDetails
@@ -87,9 +91,9 @@ class CME::Generator
 	def createFiles
 		@allnames.rstrip!.gsub!(/ /,", ")
 		@configfiles.each do |f|
-			File.open("deploy/"+f,'w')  {|file| file.write("active-channels = #{@allnames}" + "\n")}	
+			File.open("#{@deploy}/"+f,'w')  {|file| file.write("active-channels = #{@allnames}" + "\n")}	
 		end
-		File.open('deploy/mdchannels.properties','a') do |f| 
+		File.open("#{@deploy}/mdchannels.properties",'a') do |f| 
       File.open("#{@dir}/templates/premdchannels.config",'r') {|x| x.each_line {|line| f.write(line)}}
 		end
 	end
@@ -99,6 +103,7 @@ class CME::Generator
 		@idchan=[]
 		@mdchan=[]
 		@channel=[]
+    @vars["allnames"]=@allnames
 		@vars["ip"]=@cmeip
 		# =====================
 		@configs.each_value do |value|
@@ -136,13 +141,13 @@ class CME::Generator
 	end
 
 	def genCMEDisplay
-                @write=''
-                @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
-                @proper.each_value do |sym|
-                    sym.each_pair { |k,v| @write << "#{k}=#{v}\n" }
-                end
-                @finaldisplay.write(@write)
-        end
+     @write=''
+     @finaldisplay=File.open("#{@deploy}/CME_DisplayFactor.conf",'w')
+     @proper.each_value do |sym|
+       sym.each_pair { |k,v| @write << "#{k}=#{v}\n" }
+     end
+     @finaldisplay.write(@write)
+   end
 
 end
 end

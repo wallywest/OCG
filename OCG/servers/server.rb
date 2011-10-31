@@ -1,8 +1,9 @@
 require 'net/ssh'
 module OCG
 class Server
-  def self.checkserver(ip,server_col)
-      @ip=ip
+  def self.checkserver(vars,server_col)
+      @ip=vars["ip"]
+      @user=vars["user"]
       @server_col=server_col
       raise "no ip specified" if @ip.nil?
       server=@server_col.find_one({"ip"=>"#{@ip}"})
@@ -13,6 +14,8 @@ class Server
 
     @insert={"ip" => @ip, "connections" => {}}
     begin
+    p @ip
+    p @user
     Net::SSH.start(@ip,@user,:password => 'optserver') do |ssh|
         command=" egrep 'IPADDR=' /etc/sysconfig/network-scripts/ifcfg-eth[0-9]"
         findExchanges(ssh)
@@ -32,9 +35,7 @@ class Server
     puts "#{@ip} is not accesible"
     end
 
-    #server=@coll.find_one({"ip"=>"#{@ip}"})
-    #if server.nil?
-    #  @coll.insert(@insert)
+    @server_col.insert(@insert)
   end
   
   def self.findExchanges(ssh)

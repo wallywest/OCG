@@ -1,0 +1,11 @@
+{
+"task":"removeSymbol",
+"instance":"Diligentia",
+"vars" :
+  [
+    {
+    "exchange":"CME",
+    "sym":["EV,EW,SP,EW1,EW2,EW4"]
+    }
+  ]
+}

@@ -1,1 +1,12 @@
-{"task":"removeTrader","instance":"TommyChong", "user":"optionscity","trader":{"WALLY":"west"}}
+{
+  "task":"removeTrader",
+  "instance":"Traditum2", 
+  "vars":
+    {
+      "trader":
+          {
+            "WALLY":"west"
+          }
+    }
+}
+

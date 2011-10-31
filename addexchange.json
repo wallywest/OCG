@@ -1,5 +1,11 @@
 {
   "task":"addExchange",
-  "instance":"TommyChong", 
-  "exchanges": "CME"
+  "instance":"NF7_MZK",
+  "vars":
+  {
+    "exchanges": 
+      {
+      "CME":"true"
+      }
+  }
 }

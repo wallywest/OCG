@@ -1,12 +1,15 @@
 {
 "task":"addIlink",
-"instance":"PRIME_Sands",
-"ilink":
+"instance":"Traditum2",
+"vars":
   {
-    "compid":"AHR2Z7N",
-    "password":"ythtf",
-    "subid":"SANDS",
-    "port":"9129",
-    "host":"205.209.216.93"
+  "ilink":
+    {
+    "compid":"SL21X2N",
+    "password":"hunec",
+    "subid":"TRADITUM2",
+    "port":"9160",
+    "host":"205.209.216.191"
+    }
   }
 }

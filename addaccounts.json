@@ -1,10 +1,13 @@
 {
   "task":"addAccount",
-  "instance":"PRIME_Sands",
-  "account":
+  "instance":"Traditum2",
+  "vars":
   {
-    "account":"63148416",
+  "account":
+    {
+    "account":"15040080",
     "type":"ELECTRONIC",
     "isdefault":"1"
+    }
   }
 }  

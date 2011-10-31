@@ -1,1 +1,8 @@
-{"task":"addServer","ip": "172.18.196.37", "user":"optionscity"}
+{
+  "task":"addServer",
+  "vars":
+    {
+    "ip": "10.52.15.91",
+    "user":"optionscity"
+    }
+}

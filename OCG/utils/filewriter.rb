@@ -1,9 +1,11 @@
 require 'fileutils'
 class FileWriter
-	attr_accessor :exchanges
-	def initialize
+	attr_accessor :exchanges, :instance
+	def initialize(instance)
 		@filenames=[]
 		@exchanges=[]
+    @instance=instance
+    createDir
 	end
 	
   def setpath type="default"
@@ -32,10 +34,14 @@ class FileWriter
 		end
 	end
 	
+  def createDir
+      FileUtils.mkdir "deploy/#{@instance}" unless File.exists?("deploy/#{@instance}")
+  end
+
   def writeFiles
 		@filenames.uniq.each do |file|
 			data=instance_variable_get("@#{file.gsub(/\..*/,"")}")
-      File.open("deploy/#{file}",'a') {|f| f.write(data) }
+      File.open("deploy/#{@instance}/#{file}",'a') {|f| f.write(data) }
 		end
 	end
 	

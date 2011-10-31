@@ -1,0 +1,11 @@
+{
+"task":"addSymbol",
+"instance":"NF7_MZK",
+"vars" :
+  [
+    {
+    "exchange":"CME",
+    "sym":["ZC","OZC"]
+    }
+  ]
+}

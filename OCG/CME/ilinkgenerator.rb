@@ -3,7 +3,6 @@ module CME
 		def initialize(config,filewriter)
 			@config=config
       extractNonQuotes
-      debugger
       filewriter.writeTemplate("CME","CME.conf",config)
 		end
     def extractNonQuotes
