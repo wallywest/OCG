@@ -2,7 +2,7 @@ customer: CONSOLIDATED_ICE
 default: CME
 exchange:
  CME:
-  symbols: ZB,OZB,ZF,OZF,ZT,OZT 
+  symbols: ES 
   ip: 10.191.74.8 
   interface: eth2
 
