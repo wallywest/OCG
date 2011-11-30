@@ -1,0 +1,32 @@
+customer: CONSOLIDATED_ICE 
+default: CME
+exchange:
+ CME:
+  symbols: ZB,OZB,ZF,OZF,ZT,OZT 
+  ip: 10.191.74.8 
+  interface: eth2
+
+ ICE:
+  symbols:
+  sendercompid: 
+  sendersubid: 
+  username:
+  traderid:
+  clearingaccount:
+  clearingfirmid:
+
+ CBOE:
+  cas:
+  interface:
+  user:
+  password:
+  orderbranch:
+  giveupfirm:
+  orderaccount:
+  ordersubaccount:
+  supportedroductclasses: 
+  
+
+users: 
+  CHRIS: moag
+  JEFF: melgarde

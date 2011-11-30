@@ -4,7 +4,7 @@ require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
 module OCG
 	class OCG::Generator
-		def initialize(config,opts)
+		def initialize(config)
 			@config=config
 			@globsyms={}
 			@globsyms['symbols']=[]
@@ -18,7 +18,7 @@ module OCG
 				end
 			end
 			@users=@config.select {|k| k=="users"}
-			finalGenerator if opts["exchange"].nil?
+			finalGenerator #if opts["exchange"].nil?
 			@filewriter.writeFiles
 		end
     

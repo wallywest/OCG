@@ -38,6 +38,7 @@ class CME::Generator
 	def addChanName(label)
 		@allnames << "#{@translator[label]['name']} "
 	end
+
 	def addConfigs(channel,code,label)
 		 addChanName(label) if @configs["#{channel.path}"].nil?
                  @configs["#{channel.path}"] ||= {}
@@ -45,6 +46,7 @@ class CME::Generator
                  configs["#{channel.path}"]["symbols"] ||= []
                  @configs["#{channel.path}"]["symbols"] << "#{code.first.attributes["code"].value}"
 	end
+
 	def findChannelDetails
 		@configs={}
 		@skipid=["Inter Exchange Spreads"]
@@ -57,8 +59,9 @@ class CME::Generator
 				addConfigs(channel,code,label) unless code.empty?
 			end
 		end
-		@configs.keys.each {|x| getConnectionInfo x }
+		@configs.keys.each {|x| p x; getConnectionInfo x }
 	end
+
 	def createFiles
 		@allnames.rstrip!.gsub!(/ /,", ")
 		@configfiles.each do |f|
@@ -105,16 +108,16 @@ class CME::Generator
 		@filewriter.writeTemplate "CME",file,values
 	end
 	def genCMEDisplay
-                @write=''
-                @display=File.open("#{@dir}/templates/globalcmedisplay.txt",'r')
-                @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
-                @display.each_line do |line|
-                        @symbols.each do |sym|
-                                if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
-                        end
-                end
-                @finaldisplay.write(@write)
+       @write=''
+       @display=File.open("#{@dir}/templates/globalcmedisplay.txt",'r')
+       @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
+       @display.each_line do |line|
+        @symbols.each do |sym|
+         if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
         end
+      end
+      @finaldisplay.write(@write)
+  end
 
 end
 end
