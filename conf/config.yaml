@@ -1,0 +1,31 @@
+customer: PRIME_HAYA 
+default: CME
+exchange:
+ CME:
+  symbols: HO,OH,RB,OB 
+  ip: 172.22.119.16 
+  interface: eth1
+
+ ICE:
+  symbols:
+  sendercompid: 
+  sendersubid: 
+  username:
+  traderid:
+  clearingaccount:
+  clearingfirmid:
+
+ CBOE:
+  cas:
+  interface:
+  user:
+  password:
+  orderbranch:
+  giveupfirm:
+  orderaccount:
+  ordersubaccount:
+  supportedroductclasses: 
+  
+
+users: 
+ FECL: haya 

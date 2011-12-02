@@ -1,1 +1,24 @@
 Exchange configuration tool for OptionsCity written in Ruby
+
+The script is invoked like so 
+  ruby OCG.rb
+
+config file is located in conf/config.yaml. Here is a sample
+
+customer: PRIME_HAYA
+default: CME
+exchange:
+ CME:
+   symbols: HO,OH,RB,OB
+   ip: 172.22.119.16
+   interface: eth1
+                                        
+users:
+  FECL: haya
+
+symbols: tied to the cmegroup symbol value in the config.xml provided for production systems. Must be comma delimited
+ip: address of the interface on the destination server that pull market data
+interface: interface port
+
+
+Output files are written to deploy directory
