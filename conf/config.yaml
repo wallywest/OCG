@@ -2,7 +2,7 @@ customer: PRIME_HAYA
 default: CME
 exchange:
  CME:
-  symbols: HO,OH,RB,OB 
+  symbols: OG,GC 
   ip: 172.22.119.16 
   interface: eth1
 

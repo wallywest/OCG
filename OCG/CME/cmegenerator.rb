@@ -59,7 +59,7 @@ class CME::Generator
 				addConfigs(channel,code,label) unless code.empty?
 			end
 		end
-		@configs.keys.each {|x| p x; getConnectionInfo x }
+		@configs.keys.each {|x| getConnectionInfo x }
 	end
 
 	def createFiles
@@ -112,7 +112,7 @@ class CME::Generator
        @display=File.open("#{@dir}/templates/globalcmedisplay.txt",'r')
        @finaldisplay=File.open('deploy/CME_DisplayFactor.conf','w')
        @display.each_line do |line|
-        @symbols.each do |sym|
+       @symbols.each do |sym|
          if line.gsub(/:.*/,"").chomp == "#{sym}" then @write << line end
         end
       end

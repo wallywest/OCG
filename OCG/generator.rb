@@ -1,15 +1,19 @@
 $: << File.dirname(__FILE__)
+
 require 'OCG/CME/cmegenerator'
 require 'OCG/ICE/icegenerator'
 require 'OCG/utils/filewriter'
+
 module OCG
 	class OCG::Generator
-		def initialize(config)
+		def initialize(config,opts)
 			@config=config
 			@globsyms={}
 			@globsyms['symbols']=[]
 			@filewriter=FileWriter.new
-			
+		  
+      self.cleanup
+
       @config["exchange"].each_pair do |key,val|
 				unless val.has_value?(nil)
 					self.send "#{key}",val 
@@ -18,7 +22,7 @@ module OCG
 				end
 			end
 			@users=@config.select {|k| k=="users"}
-			finalGenerator #if opts["exchange"].nil?
+			finalGenerator unless opts[:sym]
 			@filewriter.writeFiles
 		end
     
@@ -49,5 +53,10 @@ module OCG
 		
     def CFE value
 		end
+
+    def cleanup
+      FileUtils.rm Dir.glob('deploy/*')
+    end
+
 	end
 end

@@ -1,5 +1,11 @@
 Exchange configuration tool for OptionsCity written in Ruby
 
+Requirements: 
+  Ruby 1.9.3
+  gem install trollop
+  gem install erubis
+
+
 The script is invoked like so 
   ruby OCG.rb
 
@@ -22,3 +28,7 @@ interface: interface port
 
 
 Output files are written to deploy directory
+
+To output only market data files run
+
+ruby OCG.rb -s

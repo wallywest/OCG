@@ -4,11 +4,13 @@ require 'OCG/generator.rb'
 require 'OCG/ilinkgenerator.rb'
 require 'OCG/utils/filewriter.rb'
 require 'yaml'
+require 'trollop'
+require 'fileutils'
 
-#need to work out: multiple demux ports
-#@config=YAML.load_file("conf/cmeicefixture.yaml")
-#@ilink=YAML.load_file("conf/ilinksprod.yaml")
+opts = Trollop::options do
+  opt :sym, "only generate files for symbols"
+end
+                                                        
 @live=YAML.load_file("conf/config.yaml")
 # Fresh install
-OCG::Generator::new(@live)
-#OCG::Ilinkgenerator.new(@ilink)
+OCG::Generator::new(@live,opts)
