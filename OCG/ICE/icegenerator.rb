@@ -49,6 +49,7 @@ class ICE::Generator
     end
     
     @chash.merge!({"mtypes" => @markettypes,"groups" => @groups, "pipeids" => "#{@totalids.join("|")}"})
+    p @chash
 	end
   
 	def writeTemplates

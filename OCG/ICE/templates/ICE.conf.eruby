@@ -37,7 +37,7 @@ Originator.ISV=OptionsCity
 Originator.Location=Desk
 Originator.SecondLevelCompID=
 Originator.SecondLevelSubID=<%=traderusername%>
-Originator.ClearingAccount=<%=traderaccount%>
+Originator.ClearingAccount=<%=clearingaccount%>
 Originator.ClearingFirm=<%=clearingfirmid%>
 Originator.AccountCode=D
 Originator.CTICode=1
