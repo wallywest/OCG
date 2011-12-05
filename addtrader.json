@@ -1,12 +1,12 @@
 {
   "task":"addTrader",
-  "instance":"NF7_MZK", 
+  "instance":"WSP_Cattle", 
   "vars":
   {
     "trader":
       {
-      "MZK":"kelly",
-      "TOA":"burke"
+      "BRIAN":"hearn",
+      "API":"api"
       }
   }
 }

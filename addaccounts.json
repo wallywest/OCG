@@ -1,13 +1,13 @@
 {
   "task":"addAccount",
-  "instance":"Traditum2",
+  "instance":"WSP_Cattle",
   "vars":
   {
   "account":
-    {
-    "account":"15040080",
+  {
+    "account":"31552",
     "type":"ELECTRONIC",
-    "isdefault":"1"
-    }
+    "isdefault":"0"
+  }
   }
 }  

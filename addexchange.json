@@ -6,6 +6,8 @@
     "exchanges": 
       {
       "CME":"true"
+      "isquoting":"false"
+      "isdefault":"yes"
       }
   }
 }

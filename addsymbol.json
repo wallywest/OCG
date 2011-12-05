@@ -1,11 +1,11 @@
 {
 "task":"addSymbol",
-"instance":"NF7_MZK",
+"instance":"WSP_Cattle",
 "vars" :
   [
     {
     "exchange":"CME",
-    "sym":["ZC","OZC"]
+    "sym":["LE"]
     }
   ]
 }

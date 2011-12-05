@@ -1,13 +1,13 @@
 {
   "task":"addInstance",
-  "ip":"172.18.196.23",
+  "ip":"10.25.2.94",
   "vars" : 
     {
-    "name":"NF7_MZK",
+    "name":"WSP_Cattle",
     "account": {},
     "traders": {},
     "user":"optionscity",
-    "server_id":"ObjectId('4e512f4a1d41c85b0a000001')",
+    "server_id":"ObjectId('4edd39519fefa50f40000001')",
     "exchanges":{}
     }
 }  

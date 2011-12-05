@@ -1,15 +1,15 @@
 {
 "task":"addIlink",
-"instance":"Traditum2",
+"instance":"WSP_Cattle",
 "vars":
   {
   "ilink":
     {
-    "compid":"SL21X2N",
-    "password":"hunec",
-    "subid":"TRADITUM2",
-    "port":"9160",
-    "host":"205.209.216.191"
+    "compid":"KK00L2N",
+    "password":"ovegr",
+    "subid":"WSP",
+    "port":"9191",
+    "host":"205.209.216.184"
     }
   }
 }
