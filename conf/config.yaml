@@ -1,19 +1,22 @@
-customer: PRIME_HAYA 
+customer: CHONG_BACKUP 
 default: CME
 exchange:
  CME:
-  symbols: OG,GC 
-  ip: 172.22.119.16 
-  interface: eth1
+  symbols: ES,ZC,ZS,ZW,CL,LO,OZC,OZS,OZW
+  ip: 10.191.74.4 
+  interface: eth0
 
  ICE:
-  symbols:
-  sendercompid: 
-  sendersubid: 
-  username:
-  traderid:
-  clearingaccount:
-  clearingfirmid:
+  symbols: CT,KC,SB
+  sendercompid: 2800 
+  sendersubid: 114
+  username: fcsoptcos-mq
+  traderid: fcsoptc-mq1
+  clearingaccount: 14700
+  clearingfirmid: 3370
+  traderusername: TOM
+  psusername: fcsoptcps2
+  interface: eth2
 
  CBOE:
   cas:
@@ -28,4 +31,5 @@ exchange:
   
 
 users: 
- FECL: haya 
+  TOM: chong
+  JOHN: scaife
