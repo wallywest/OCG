@@ -58,7 +58,6 @@ class CME::Generator
 			        @configs["#{channel}"]["connAtts"]["#{id}#{x}"] << config.children.text
 		        end
 		end
-
 	end
 
 	def addChanName(label)
@@ -147,7 +146,7 @@ class CME::Generator
        sym.each_pair { |k,v| @write << "#{k}=#{v}\n" }
      end
      @finaldisplay.write(@write)
-   end
+  end
 
 end
 end

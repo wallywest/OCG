@@ -1,8 +1,7 @@
 require 'mongo'
-require 'roo'
 @conn = Mongo::Connection.new
 @db   = @conn["servers"]
-@col = @db["products"]
+@col = @db["test"]
 @inserts={}
 def parseLine(x)
     first,value=x.split("=")
@@ -15,5 +14,7 @@ File.open("globalcmedisplay.txt","r") {|f|
     parseLine(x) unless x=="\n"
   end
 }
-#posts=@col.find("exchanges" => "CME")
-@col.insert({"_id" => BSON::ObjectId('4e5fef24c4389533957fa0c4'),  "exchange" => "CME", "symbols" => @inserts})
+posts=@col.find_one({"exchange" => "CME"})
+p posts
+#@col.insert({"exchange" => "CME", "symbols" => @inserts})
+@col.update({"exchange"=>"CME"},{"$set" => {"symbols" => @inserts}})
