@@ -7,8 +7,7 @@ module OCG
     def initialize
         ## need to add which instance we will right for
         runTask unless params[:json].nil?
-        #OCG::Writer::new if @params[:write]=="true"
-        mainFunction if params[:write]=="true"
+        mainFunction if params[:write]
     end
 
     def mainFunction
@@ -17,6 +16,8 @@ module OCG
         unless @instance.nil?
           @serverid=@instance["server_id"]
           buildExchanges
+          exit
+          OCG::Writer::run
         end
     end
 
@@ -26,8 +27,7 @@ module OCG
         @totsym={"symbols" => []}
         @instance["exchanges"].each_pair do |exchange,values|
             @writer["#{exchange}"] ||= {}
-            
-            setDefault(exchange) if values["isdefault"]
+            @defaultexchange=exchange if values["isdefault"]
       
             setSymbolConfig(exchange,values["sym"])
             setExchangeFeeds(exchange)
@@ -35,6 +35,8 @@ module OCG
             @writer["#{exchange}"]["consts"]=values
             @writer["#{exchange}"]["device"]=interface(exchange)
         end
+        
+        p self.instance_variables
     end
 
     def interface(exchange)

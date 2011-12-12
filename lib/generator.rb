@@ -9,7 +9,14 @@ module OCG
 	class Writer
     include OCG::Helpers
 
-		def initialize(builder,instance,function)
+    def self.run
+        writer=OCG::Writer.new
+        writer.writeFiles
+    end
+
+		def initialize(builder)
+
+      # params is a shareable variable now for function=task and instance
       puts "in writer"
       debugger
 			@builder=builder
@@ -21,8 +28,7 @@ module OCG
 			end
 
       finalGenerator if function=="install"
-			@filewriter.writeFiles
-      puts "written"
+			@filewriter
 		end
     
 		def finalGenerator
@@ -53,7 +59,6 @@ module OCG
 		end
 
     def traders
-
       #type={"API" => "4", "TRADER" => "1"}
       #role={"VIEW" => "0", "TRADER" => "1", "LIMITED" => "2", "RISK" => "3", "CLERK" => "4"}
 
