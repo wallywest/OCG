@@ -1,0 +1,11 @@
+{
+  "task":"removeExchange",
+  "instance":"PRIME_Seal",
+  "vars":
+  {
+    "exchanges": 
+      {
+      "CME":"true"
+      }
+  }
+}

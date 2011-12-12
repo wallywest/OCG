@@ -1,0 +1,4 @@
+<%=ipa%> 10000
+<% unless ipa==ipb %>
+<%=ipb%> 10001
+<% end %>

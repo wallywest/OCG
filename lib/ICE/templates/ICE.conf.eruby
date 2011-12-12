@@ -1,0 +1,151 @@
+##################################################
+#
+# ICE SETTINGS
+#
+##################################################
+
+##################################################
+# MARKET DATA SETTINGS
+#
+# Valid market data types are MULTICAST or TCP (Default is TCP)
+##################################################
+MarketDataType = MULTICAST
+
+##################################################
+# QUOTE GOVERNOR SETTINGS
+##################################################
+QuotesPerInterval = 100
+Interval = 1000
+QuotesPerMassQuote = 100
+QuoteSubmitDelay = 50
+
+##################################################
+#
+# QUICKFIX SETTINGS
+#
+##################################################
+# default settings for sessions
+[DEFAULT]
+ConnectionType=initiator
+ReconnectInterval=60
+FileStorePath=var
+FileLogPath=log
+TargetCompID=ICE
+
+# ORDER ROUTING REQUIRED CONFIGURATIONS
+Originator.ISV=OptionsCity
+Originator.Location=Desk
+Originator.SecondLevelCompID=
+Originator.SecondLevelSubID=<%=traderusername%>
+Originator.ClearingAccount=<%=traderaccount%>
+Originator.ClearingFirm=<%=clearing%>
+Originator.AccountCode=D
+Originator.CTICode=1
+Originator.CustomerAccountRefId=oc_fix_os
+
+
+[SESSION]
+BeginString=FIX.4.2
+SenderCompID=<%=compid%>
+Password=<%=tradepass%>
+SenderSubID=<%=subid%>
+Username=<%=osid%>
+TraderId=<%=traderid%>
+SessionQualifier=<%=osid%>
+TimeZone=America/Chicago
+StartTime=18:00:00
+EndTime=17:30:00
+FileLogHeartbeats=N
+HeartBtInt=30
+SocketConnectPort=80
+SocketConnectHost=63.247.112.193
+UseDataDictionary=Y
+DataDictionary=conf/data_dictionary/ICE_FIX42.xml
+LogoutTimeout=2
+LogonTimeout=30
+ResetOnLogon=N
+MillisecondsInTimeStamp=Y
+SendRedundantResendRequests=N
+ValidateFieldsOutOfOrder=N
+# SET THIS ONCE BEFORE STARTING SERVER IF NEEDED TO RESET SEQUENCE NUMBERS
+ResetSeqNums=N
+# GIVE UP SETTINGS
+# GiveUpFirm SHOULD BE A 3 DIGIT FIRM NUMBER
+#GiveUpFirm=
+# CmtaGiveupCD SHOULD BE EITHER GU = GIVE-UP OR SX = SGX OFF-SET
+#CmtaGiveupCD=
+
+###########################################################################################
+# TraderId Selector Settings
+#
+# Use this selector when multiple Trader Ids are needed for one FIX session
+#
+# Current Supported Trader Id Selectors:
+#
+# CLASS:com.optionscity.exchanges_ICE.Structures.TraderNameToTraderIdOneToOneSelector
+#
+# Format:  TraderIdSelector = <Selector Class>
+#          TraderIdMapping = <ICE Trader Id>:<OC Trader From Database>, ...
+#
+# Notes:   TraderId above will be used as a default TraderId
+#          If quoting, TraderId above is the quoting TraderId
+#          If quoting, Same OC Trader should be default here and in the quotingcenter.conf
+#
+# Example: TraderIdSelector = CLASS:com.optionscity.exchanges_ICE.Structures.TraderNameToTraderIdOneToOneSelector
+#          TraderIdMapping = oc_fix_trader:support, oc-mq1:USER
+#
+# CLASS:com.optionscity.exchanges_ICE.Structures.MultipleIlinkTraderNameToTraderIdSelector
+#
+# Format:  TraderIdSelector = <Selector Class>
+#          TraderIdMapping = <ICE Trader Id>:<SessionQualifier 1>:<Ilink Identifier 1>:<OC Trader From Database>, 
+#                            <ICE Trader Id>:<SessionQualifier 2>:<Ilink Identifier 2>:>OC Trader From Database>
+#
+# Notes:   There should only be one trader set to Ilink Identifier of QUOTING_ILINK
+#          This should be used when multiple ilinks are specified
+#       
+# Example: TraderIdSelector = CLASS:com.optionscity.exchanges_ICE.Structures.MultipleIlinkTraderNameToTraderIdSelector
+#          TraderIdMapping = oc_fix_trader:oc_fix_os1:ORDERING_ILINK:support, oc-mq1:oc_fix_os:QUOTING_ILINK:USER
+#
+###########################################################################################
+
+###########################################################################################
+# Ilink Selector Settings
+#
+# Only use selectors below when multiple Ilinks are available
+#
+# Current Supported Trader Id Selectors:
+#
+# CLASS:com.optionscity.exchanges_ICE.Structures.OrderOrQuoteILinkSelector
+#
+# Format:   ILinkSelector = <Selector Class>
+#           ILink.QUOTING_ILINK = <Quoting ILink>
+#           ILink.ORDERING_ILINK = <Ordering ILink>
+#
+# Notes:    Must specify QUOTING_ILINK and ORDERING_ILINK only
+#
+# Example:  ILinkSelector = CLASS:com.optionscity.exchanges_ICE.Structures.OrderOrQuoteILinkSelector
+#           ILink.QUOTING_ILINK = oc_fix_os
+#           ILink.ORDERING_ILINK = oc_fix_os1
+#
+###########################################################################################
+
+
+# Strategy creation settings
+#MaxNumInstrumentsCovered=3
+#MaxNumFuturesCovered=2
+#MaxNumInstrumentsCombo=40
+
+# Supported Security Types
+# Valid values: FUT, OPT
+###NOTE!!!!! NOTE!!!!! NOTE!!!!!
+#the parameter should be SupportedSecuityTypes, NOT SupportedSecurityTypes.  Notice the lack of 'r'.
+SupportedSecuityTypes=OPT
+
+# Supported Security IDs
+#SupportedSecurityIDs=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|36|37|38|39|40|41|42|43|44
+SupportedSecurityIDs=<%=pipeids%>
+
+# NYBOT Financial Markets
+# These spreads are sell first leg and buy second leg. 
+# All other spreads are the opposite
+FinancialMarkets=28|29|26|39
