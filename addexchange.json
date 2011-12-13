@@ -1,13 +1,11 @@
 {
   "task":"addExchange",
-  "instance":"NF7_MZK",
+  "instance":"PRIME_Sunshine",
   "vars":
   {
     "exchanges": 
       {
       "CME":"true"
-      "isquoting":"false"
-      "isdefault":"yes"
       }
   }
 }

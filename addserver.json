@@ -2,7 +2,7 @@
   "task":"addServer",
   "vars":
     {
-    "ip": "10.25.2.94",
+    "ip": "10.8.101.43",
     "user":"optionscity"
     }
 }

@@ -2,12 +2,12 @@ require 'helpers.rb'
 module OCG
   class Generator
     include OCG::Helpers
-    #attr_reader :writer,:symprop,:feeds,:traders,:accounts,:customer,:totsym,:defaultexchange
+    attr_reader :writer,:symprop,:feeds,:traders,:accounts,:customer,:totsym,:defaultexchange
 
     def initialize
         ## need to add which instance we will right for
-        runTask unless params[:json].nil?
-        mainFunction if params[:write]
+        #runTask unless params[:json].nil?
+        mainFunction
     end
 
     def mainFunction
@@ -15,9 +15,9 @@ module OCG
         @instance=instances.find_one({"name" => params[:instance]})
         unless @instance.nil?
           @serverid=@instance["server_id"]
+          @customer=@instance["name"]
+          buildTraders
           buildExchanges
-          exit
-          OCG::Writer::run
         end
     end
 
@@ -36,7 +36,6 @@ module OCG
             @writer["#{exchange}"]["device"]=interface(exchange)
         end
         
-        p self.instance_variables
     end
 
     def interface(exchange)
@@ -54,10 +53,10 @@ module OCG
     def setExchangeFeeds(exchange)
         @feeds=products.find_one({"exchange" => "#{exchange}"}, :fields => {"feeds" => 1})
     end
-  
-    def runTask
-        #some json checker?
-        OCG::Functions::runQuery
+
+    def buildTraders
+        @traders=@instance["traders"]
     end
+
   end
 end

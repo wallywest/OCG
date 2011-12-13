@@ -21,6 +21,5 @@ module OCG
       def filewriter
         OCG.filewriter
       end
-
   end
 end

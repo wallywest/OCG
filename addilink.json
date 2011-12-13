@@ -1,15 +1,16 @@
 {
 "task":"addIlink",
-"instance":"WSP_Cattle",
+"instance":"PRIME_Sunshine",
 "vars":
   {
   "ilink":
     {
-    "compid":"KK00L2N",
-    "password":"ovegr",
-    "subid":"WSP",
-    "port":"9191",
-    "host":"205.209.216.184"
+    "compid":"PX42Z7N",
+    "password":"",
+    "subid":"SUNSHINE",
+    "port":"9542",
+    "host":"205.209.216.193",
+    "account": "63047191"
     }
   }
 }

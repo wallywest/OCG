@@ -3,7 +3,8 @@ INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreatio
 <% scount=3 %>
 <% sdefault=1 %>
 <% for u in users do %>
-INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `isDefault`,`accountType`, `role`, `location`) VALUES (<%= scount %>, '<%= u[0] %>', '<%= u[1] %>', NOW(), <%= sdefault %>,1, 1, 'US,IL');
+<% p u %>
+INSERT INTO TRADERS (`persistId`, `traderUsername`, `password`, `passwordCreationDate`, `isDefault`,`accountType`, `role`, `location`) VALUES (<%= scount %>, '<%= u["user"] %>', '<%= u["pass"] %>', NOW(), <%= sdefault %>,1, 1, 'US,IL');
 <% scount+=1 %>
 <% sdefault=0 %>
 <% end %>

@@ -1,43 +1,61 @@
 $: << File.dirname(__FILE__)
 #GLOBAL INTERFACE TO GENERATE CONFIGS
-require 'OCG/generator.rb'
-require 'OCG/db.rb'
-require 'OCG/builder.rb'
-require 'OCG/utils/filewriter.rb'
-require 'OCG/utils/functions.rb'
-require 'OCG/servers/server.rb'
+require 'lib/generator.rb'
+require 'lib/builder.rb'
+require 'lib/deploy.rb'
+require 'lib/utils/filewriter.rb'
+require 'lib/utils/functions.rb'
+require 'lib/servers/server.rb'
+require 'lib/helpers.rb'
+
 require 'yaml'
 require 'json'
 require 'mongo'
-require 'trollop'
+module OCG
+  extend self
+  include Helpers
+  
+  def db
+      @conn = Mongo::Connection.new
+      @db = @conn["servers"]
+      @instances = @db["instances"]
+      @servers = @db["servers"]
+      @products = @db["products"]
+  end
 
-opts = Trollop::options do
-  opt :task, "task to run", :type => :string
-  opt :write, "write to file", :type => :string
-  opt :json, "json param file", :type => :string
-  opt :instance, "specify instance for writer function", :type => :string
-  opt :deploy, "deploy config file", :type => :string
+  def instances
+    return @instances if @instances
+    self.db
+    @instances
+  end
+
+  def servers
+    return @servers if @servers
+    self.db
+    @servers
+  end
+
+  def products
+    return @products if @products
+    self.db
+    @products
+  end
+
+  def params
+    @params
+  end
+
+  def run(opts)
+    @params=opts
+    case @params[:function]
+    when "write"
+      OCG::Writer.new
+    when "attribute"
+      OCG::Functions::runQuery
+    when "deploy"
+      OCG::Deployer::push
+    else
+      puts "task not supported"
+    end
+  end
 end
-
-#tasks: install,disable,addProduct,removeProduct,addIlink,removeIlink,disableExchange,enableExchange,
-
-#later
-#database changes addTradeAccount,removeTradeAccount, addTrader,removeTrader
-
-#@instance=ARGV[0]
-#@task=ARGV[1]
-#opts={:task => "debug", :write => "true", :instance => "GBAR_Silver"}
-
-unless opts[:json].nil?
-  params=JSON.parse(File.read(opts[:json])) 
-  opts.merge!(params)
-end
-
-@builder=OCG::Builder::new(opts) 
-  #:instance => "#{@instance}",
-  #:function => "#{@task}"
-  #:write => true
-
-# Fresh install
-# all tasks that are accomplished
-OCG::Writer::new(@builder,opts[:instance],opts[:task]) if opts[:write]=="true"

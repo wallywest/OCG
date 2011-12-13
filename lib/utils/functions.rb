@@ -14,8 +14,8 @@ class Functions
   end
 
   def addTrader
-    params["vars"]["trader"].each_pair do |user,pass|
-      instances.update({"name" => "#{params["instance"]}"}, { "$set" => {"traders.#{user}" => "#{pass}"}})
+    params["vars"]["trader"].each do |trader|
+      instances.update({"name" => "#{params["instance"]}"}, { "$push" => {"traders" => trader}})
     end
   end
 
@@ -88,7 +88,8 @@ class Functions
   end
 
   def addInstance
-      @server= servers.find_one({"ip" => "#{params["ip"]}"}) 
+      @server=servers.find_one({"ip" => "#{params["ip"]}"}) 
+      raise "server is not defined" if @server.nil?
       params["vars"]["server_id"]=@server["_id"]
       instances.insert(params["vars"])
   end

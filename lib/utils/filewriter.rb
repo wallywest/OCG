@@ -1,11 +1,12 @@
 require 'fileutils'
 class FileWriter
 	attr_accessor :exchanges, :instance
-	def initialize(instance,builder)
+	def initialize(builder)
 		@filenames=[]
 		@exchanges=[]
-    @instance=instance
+    debugger
     @builder=builder
+    @instance=@builder.customer
     createDir
 	end
 	

@@ -9,26 +9,21 @@ module OCG
 	class Writer
     include OCG::Helpers
 
-    def self.run
-        writer=OCG::Writer.new
-        writer.writeFiles
-    end
-
-		def initialize(builder)
-
+		def initialize
       # params is a shareable variable now for function=task and instance
       puts "in writer"
+      @builder=OCG::Generator.new
       debugger
-			@builder=builder
-			@filewriter=FileWriter.new(instance,builder)
+			@filewriter=FileWriter.new(@builder)
 
       @builder.writer.each_key do |key|
 					self.send "#{key}" 
 					@filewriter.exchanges << key 
 			end
 
-      finalGenerator if function=="install"
-			@filewriter
+      finalGenerator
+      #if function=="install"
+			@filewriter.writeFiles
 		end
     
 		def finalGenerator
@@ -61,8 +56,10 @@ module OCG
     def traders
       #type={"API" => "4", "TRADER" => "1"}
       #role={"VIEW" => "0", "TRADER" => "1", "LIMITED" => "2", "RISK" => "3", "CLERK" => "4"}
-
-      @filewriter.writeTemplate("populatetraders.sql",@builder.traders)
+      @traders={"users" => @builder.traders}
+      debugger
+      puts @traders
+      @filewriter.writeTemplate("populatetraders.sql",@traders)
     end
 
     def portfolio
@@ -70,7 +67,7 @@ module OCG
     end
 
     def quotingcenter
-      @filewriter.writeTemplate("quotingcenter.conf",@builder.traders)
+      @filewriter.writeTemplate("quotingcenter.conf",@traders)
     end
 
     def customer
