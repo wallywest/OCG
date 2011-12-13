@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<multicastClientConfig>
+
+  <currentEnvironment>
+    <current name="PROD"/>
+  </currentEnvironment>
+
+  <currentContext>
+  <!--  Valid values are priceLevel or fullOrderDepth -->
+    <context name="priceLevel"/>
+  </currentContext>
+
+  <enableSettlements>
+  <!--  Valid values are true or false  -->
+    <settlements enabled="false"/>
+  </enableSettlements>
+
+  <supportedSecurityTypes>
+  <!--  Comma delimited O = Options, F = Futures, U = UDS -->
+  <!--  Example: O,F,U for supporting all security types  -->
+    <type name="F,O,U"/>
+  </supportedSecurityTypes>
+  
+  <supportedSymbols>
+        <!--    Comma delimited    -->
+        <!--    Example: BRN,SB,KC -->
+                <symbols set="<%= sym.join(',') %>"/>
+  </supportedSymbols>
+
+  <environment name="PROD">
+                <!-- Optionscity TCP Connection Information -->
+                <tcp ip="63.247.112.185" port="80"
+                        userName="<%= psid %>"
+                        password="<%= pspass %>"/>
+                <multicast>
+                      <% for g in groups do %>
+                        <group name="<%=g["name"]%>">
+                        <% unless g["name"].include?("Options") %>
+                            <fullOrderDepth>
+                              <live ip="<%=g["network"]["orderdepth"]["liveip"]%>" port="<%=g["network"]["orderdepth"]["liveport"]%>"/>
+                              <snapshot ip="<%=g["network"]["orderdepth"]["snapshotip"]%>" port="<%=g["network"]["orderdepth"]["snapshotport"]%>"/>
+                            </fullOrderDepth>
+                        <% end %>
+                            <priceLevel>
+                              <live ip="<%=g["network"]["pricelevel"]["liveip"]%>" port="<%=g["network"]["pricelevel"]["liveport"]%>"/>
+                              <snapshot ip="<%=g["network"]["pricelevel"]["snapshotip"]%>" port="<%=g["network"]["pricelevel"]["snapshotport"]%>"/>
+                            </priceLevel>
+                            <marketTypesInGroup>
+                               <supported type="<%=g["ids"]%>"/>
+                            </marketTypesInGroup>
+                        </group>
+                      <% end %>
+                </multicast>
+  </environment>
+
+  <parameters>
+    <multicastNetworkInterface><%=interface%></multicastNetworkInterface>
+    <multicastInactivityThreshold>30000</multicastInactivityThreshold>
+  </parameters>  
+  
+  <multicastGroups>
+          <% for g in groups do %>
+            <% if g["name"].include?("Options") %>
+             <multicastGroup name="<%=g["name"]%>" isOptions="true"/>
+            <% else %>
+             <multicastGroup name="<%=g["name"]%>"/>
+            <% end %>
+          <% end %>
+  </multicastGroups>
+  
+  <allMarketTypes>
+          <% for m in mtypes do %>
+                <marketType code="<%=m["id"]%>" name="<%=m["name"]%>">
+                    <multicastGroup name="<%=m["group"]%>"/>
+                    <multicastGroup name="<%=m["options"]%>"/>
+                </marketType>
+          <% end %>
+  </allMarketTypes>
+</multicastClientConfig>

@@ -1,11 +1,11 @@
 {
 "task":"addSymbol",
-"instance":"WSP_Cattle",
+"instance":"PRIME_Sunshine",
 "vars" :
   [
     {
     "exchange":"CME",
-    "sym":["LE"]
+    "sym":["ZB","OZB","ZN","OZN","ZB1","ZB2","ZB3","ZB4","ZB5","ZN1","ZN2","ZN3","ZN4","ZN5"]
     }
   ]
 }

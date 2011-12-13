@@ -1,18 +1,18 @@
 {
 "task":"addICEids",
-"instance":"NF10_StuartStallo",
+"instance":"PRIME_Seal",
 "ice":
   {
     "clearing":"3382",
-    "compid":"3410",
+    "compid":"2800",
     "isdefault":"true",
-    "osid":"mfgoptos4",
-    "psid":"stallops",
+    "osid":"fcoptcos4",
+    "psid":"fcsoptcps4",
     "pspass":"Opti0nscity",
-    "subid":"12",
-    "tradepass":"Mfg2011!",
-    "traderusername":"STUART",
-    "traderid":"mfgopt-fx1",
-    "sym": ["CT"]
+    "subid":"124",
+    "tradepass":"0pti0nscity",
+    "traderusername":"SEAL",
+    "traderid":"fcsoptc-mq2",
+    "sym": ["SB"]
   }
 }

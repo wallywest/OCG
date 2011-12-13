@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../'
+require 'OCG'
+require 'trollop'
+
+opts = Trollop::options do
+ opt :function, "task to run", :type => :string
+ #opt :write, "write to file", :type => :string
+ opt :json, "json param file", :type => :string
+ opt :instance, "specify instance for writer function", :type => :string
+ opt :deploy, "deploy config file", :type => :string
+end
+
+#tasks: install,disable,addProduct,removeProduct,addIlink,removeIlink,disableExchange,enableExchange,
+
+#later
+#database changes addTradeAccount,removeTradeAccount, addTrader,removeTrader
+
+unless opts[:json].nil?
+  params=JSON.parse(File.read(opts[:json]))
+  opts.merge!(params)
+end
+#opts[:function]="write"
+#opts[:function]="attribute"
+#opts[:function]="deploy"
+#opts[:instance]="PRIME_Anew"
+
+#OCG.params=opts
+OCG.run(opts)
+#OCG::Generator::new
+
+# Fresh install
+# all tasks that are accomplished
+#OCG::Writer::new(@builder,opts[:instance],opts[:task]) if opts[:write]=="true"

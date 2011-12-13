@@ -1,12 +1,22 @@
 {
   "task":"addTrader",
-  "instance":"WSP_Cattle", 
+  "instance":"PRIME_Anew", 
   "vars":
   {
     "trader":
+     [
       {
-      "BRIAN":"hearn",
-      "API":"api"
+        "user":"DOUG",
+        "pass":"orr",
+        "type":"TRADER",
+        "role":"TRADER"
+      },
+      {
+        "user":"ANDREW",
+        "pass":"cacamisi",
+        "type":"TRADER",
+        "role":"TRADER"
       }
+     ]
   }
 }

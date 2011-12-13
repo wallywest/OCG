@@ -1,0 +1,5 @@
+<% count=0 %>
+<% for s in symbols.flatten %>
+INSERT INTO `PORTFOLIOSYMBOLS` ( `persistId` , `symbol` ) VALUES ('<%=count%>', '<%=s%>');
+<% count+=1 %>
+<% end %>

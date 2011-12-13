@@ -1,6 +1,6 @@
 {
-  "task":"addExchange",
-  "instance":"PRIME_Sunshine",
+  "task":"removeExchange",
+  "instance":"PRIME_Seal",
   "vars":
   {
     "exchanges": 

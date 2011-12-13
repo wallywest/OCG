@@ -1,13 +1,13 @@
 {
   "task":"addAccount",
-  "instance":"WSP_Cattle",
+  "instance":"PRIME_Sunshine",
   "vars":
   {
   "account":
   {
-    "account":"31552",
+    "account":"63047191",
     "type":"ELECTRONIC",
-    "isdefault":"0"
+    "isdefault":"1"
   }
   }
 }  

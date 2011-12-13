@@ -1,13 +1,12 @@
 {
   "task":"addInstance",
-  "ip":"10.25.2.94",
+  "ip":"10.8.101.43",
   "vars" : 
     {
-    "name":"WSP_Cattle",
+    "name":"PRIME_Sunshine",
     "account": {},
     "traders": {},
     "user":"optionscity",
-    "server_id":"ObjectId('4edd39519fefa50f40000001')",
     "exchanges":{}
     }
 }  
